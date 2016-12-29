@@ -90,7 +90,7 @@ set textwidth=80
 " set colorcolumn=+1
 
 " Define colorscheme
-colorscheme wombat 
+colorscheme wombat
 
 
 " Numbers
@@ -175,7 +175,7 @@ if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
 
-" Include package
+" Include packages
 execute pathogen#infect()
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
