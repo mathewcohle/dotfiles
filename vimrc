@@ -90,7 +90,8 @@ set textwidth=80
 " set colorcolumn=+1
 
 " Define colorscheme
-colorscheme wombat
+colorscheme molokai
+highlight Comment cterm=bold
 
 
 " Numbers
