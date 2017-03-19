@@ -53,6 +53,13 @@ In case you are using `virtualenv` use:
 let g:ycm_python_binary_path = 'python'
 ```
 
+## Git setup
+
+Configure global `gitignore` (given repo is cloned to `$HOME`):
+```
+git config --global core.excludesfile ~/dotfiles/gitignore_global
+```
+
 ## Other dependencies
 
 * `pip install --upgrade autopep8`
