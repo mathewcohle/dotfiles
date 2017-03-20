@@ -22,7 +22,6 @@ ln -s dotfiles/tmux.conf .tmux.conf
 
 # Install vim packages
 cd dotfiles/vim/bundle
-git clone https://github.com/iambanker/dotfiles.git
 git clone --depth=1 https://github.com/vim-syntastic/syntastic.git
 git clone https://github.com/vim-airline/vim-airline 
 git clone https://github.com/vim-airline/vim-airline-themes 
