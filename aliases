@@ -1,4 +1,4 @@
-alias ll="ls -alH"
+alias ll="ls -alhH"
 alias vim='mvim -v'
 alias grep='grep --color=auto'
 alias lh='ls -a | egrep "^\."'

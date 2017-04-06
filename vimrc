@@ -3,7 +3,6 @@ if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
-
 " Leader
 let mapleader = ","
 
@@ -17,6 +16,17 @@ set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
+set cursorline    " highlight current line
+set tabstop=2
+set shiftwidth=2
+set shiftround
+set expandtab
+set wildmenu      " visual autocomplete for command menu
+set lazyredraw    " redraw only when we need to.
+set showmatch     " highlight matching [{()}]
+set incsearch           " search as characters are entered
+set hlsearch            " highlight matches
+
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -50,17 +60,12 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile Appraisals set filetype=ruby
   autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
+  autocmd BufRead,BufNewFile .jsons set filetype=json
 augroup END
 
 " When the type of shell script is /bin/sh, assume a POSIX-compatible
 " shell for syntax highlighting purposes.
 let g:is_posix = 1
-
-" Softtabs, 2 spaces
-set tabstop=2
-set shiftwidth=2
-set shiftround
-set expandtab
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
@@ -123,16 +128,18 @@ endfunction
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <S-Tab> <c-n>
 
-" Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
+" Commenting blocks of code.
+autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
+autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+autocmd FileType conf,fstab       let b:comment_leader = '# '
+autocmd FileType tex              let b:comment_leader = '% '
+autocmd FileType mail             let b:comment_leader = '> '
+autocmd FileType vim              let b:comment_leader = '" '
+noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
-" Quicksave command
-" noremap <C-Z> :update<CR>
-" vnoremap <C-Z> <C-C>:update<CR>
-" inoremap <C-Z> <C-O>:update<CR>
+" Custom map
+map <F3> :NERDTreeTabsToggle<CR>
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
@@ -140,15 +147,33 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <Leader>n <C-w>w
+" highlight last inserted text
+nnoremap gV `[v`]
+
 
 noremap <Leader>q :quit<CR>
+noremap <Leader>Q :quit!<CR>
 noremap <Leader>s :update<CR>
 noremap <Leader>e :Texplore<CR>
 noremap <Leader>t :tabn<CR>
 noremap <Leader>f :Autoformat<CR>
 noremap <Leader>g :YcmCompleter GetDoc<CR>
+noremap <Leader>G :YcmCompleter GoToDefinitionElseDeclaration<CR>
 noremap <Leader>py :!clear; python %<CR>
+noremap <Leader>env :!source env/bin/activate<CR>
+" turn off search highlight
+nnoremap <Leader><space> :nohlsearch<CR>
 
+" Commands definitions
+command! J :%!python -m json.tool
+
+" " Custom autocommand definitions
+" " Start NERDTree
+" autocmd VimEnter * NERDTree
+" " Jump to the main window.
+" autocmd VimEnter * wincmd p
+" " Close when no buffer is opened
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
@@ -167,9 +192,7 @@ endif
 
 " Include packages
 execute pathogen#infect()
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+execute pathogen#helptags()
 
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
@@ -182,14 +205,17 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args='--ignore=E501'
-
 let g:airline_theme='wombat'
 let g:airline_powerline_fonts = 1
-
 let g:ycm_python_binary_path = 'python'
-
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_goto_buffer_command='new-or-existing-tab'
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
-
-
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+let g:nerdtree_tabs_open_on_console_startup = 1
+" CtrlP settings
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
 
