@@ -26,6 +26,8 @@ set lazyredraw    " redraw only when we need to.
 set showmatch     " highlight matching [{()}]
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
+set ignorecase
+set smartcase
 
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -140,6 +142,13 @@ noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<
 
 " Custom map
 map <F3> :NERDTreeTabsToggle<CR>
+:nmap j gj
+:nmap k gk
+" Return to previous buffer
+:nmap <C-e> :e#<CR>
+:nmap <C-n> :bnext<CR>
+:nmap <C-b> :bprev<CR>
+:cnoremap <C-a>  <Home>
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
@@ -218,4 +227,7 @@ let g:nerdtree_tabs_open_on_console_startup = 1
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
+let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 
