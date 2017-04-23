@@ -19,6 +19,7 @@ ln -s dotfiles/vim .vim
 ln -s dotfiles/bashrc .bashrc
 ln -s dotfiles/gitconfig .gitconfig
 ln -s dotfiles/tmux.conf .tmux.conf
+ln -s dotfiles/zsrhc .zshrc
 
 # Install vim packages
 cd dotfiles/vim/bundle
