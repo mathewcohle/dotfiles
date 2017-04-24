@@ -178,13 +178,13 @@ nnoremap <Leader><space> :nohlsearch<CR>
 " Commands definitions
 command! J :%!python -m json.tool
 
-" " Custom autocommand definitions
-" " Start NERDTree
-" autocmd VimEnter * NERDTree
-" " Jump to the main window.
-" autocmd VimEnter * wincmd p
-" " Close when no buffer is opened
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Custom autocommand definitions
+" Start NERDTree
+autocmd VimEnter * NERDTree
+" Jump to the main window.
+autocmd VimEnter * wincmd p
+" Close when no buffer is opened
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
@@ -214,7 +214,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_checkers = ['flake8', 'pep8', 'pep257', 'python']
 let g:syntastic_python_flake8_args='--ignore=E501'
 let g:airline_theme='tomorrow'
 let g:airline_powerline_fonts = 1
