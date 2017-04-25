@@ -65,6 +65,16 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile .jsons set filetype=json
 augroup END
 
+" Commenting blocks of code.
+autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
+autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+autocmd FileType conf,fstab       let b:comment_leader = '# '
+autocmd FileType tex              let b:comment_leader = '% '
+autocmd FileType mail             let b:comment_leader = '> '
+autocmd FileType vim              let b:comment_leader = '" '
+noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+
 " When the type of shell script is /bin/sh, assume a POSIX-compatible
 " shell for syntax highlighting purposes.
 let g:is_posix = 1
@@ -167,6 +177,7 @@ noremap <Leader>Q :quit!<CR>
 noremap <Leader>s :update<CR>
 noremap <Leader>e :Texplore<CR>
 noremap <Leader>t :tabn<CR>
+noremap <Leader>T :tabp<CR>
 noremap <Leader>f :Autoformat<CR>
 noremap <Leader>g :YcmCompleter GetDoc<CR>
 noremap <Leader>G :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -214,7 +225,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['flake8', 'pep8', 'pep257', 'python']
+let g:syntastic_python_checkers = ['flake8', 'pep8', 'python']
 let g:syntastic_python_flake8_args='--ignore=E501'
 let g:airline_theme='tomorrow'
 let g:airline_powerline_fonts = 1
