@@ -154,6 +154,7 @@ noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<
 
 " Custom map
 map <F3> :NERDTreeTabsToggle<CR>
+map <F5> :CtrlPClearCache<CR>
 :nmap j gj
 :nmap k gk
 " Return to previous buffer
