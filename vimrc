@@ -28,7 +28,8 @@ set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
 set ignorecase
 set smartcase
-
+set mouse=a       " enable mouse for all modes
+set clipboard+=unnamed
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -228,7 +229,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['flake8', 'pep8', 'python']
 let g:syntastic_python_flake8_args='--ignore=E501'
-let g:airline_theme='tomorrow'
+let g:airline_theme='term'
 let g:airline_powerline_fonts = 1
 let g:ycm_python_binary_path = 'python'
 let g:ycm_autoclose_preview_window_after_completion = 1
