@@ -113,11 +113,11 @@ set termguicolors
 set background=dark
 colorscheme boa
 
-" Block cursor
-let &t_ti.="\e[1 q"
-let &t_SI.="\e[5 q"
-let &t_EI.="\e[1 q"
-let &t_te.="\e[0 q"
+" " Block cursor
+" let &t_ti.="\e[1 q"
+" let &t_SI.="\e[5 q"
+" let &t_EI.="\e[1 q"
+" let &t_te.="\e[0 q"
 
 " Numbers
 set number
