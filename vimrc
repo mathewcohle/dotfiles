@@ -159,10 +159,8 @@ map <F5> :CtrlPClearCache<CR>
 :nmap j gj
 :nmap k gk
 " Return to previous buffer
-:nmap <C-e> :e#<CR>
 :nmap <C-n> :bnext<CR>
-:nmap <C-b> :bprev<CR>
-:cnoremap <C-a>  <Home>
+:nmap <C-N> :bprev<CR>
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
