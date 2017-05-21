@@ -65,6 +65,8 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
   autocmd BufRead,BufNewFile .jsons set filetype=json
 augroup END
+" Auto strip trailing whitespace
+autocmd BufWritePre * %s/\s\+$//e
 
 " Commenting blocks of code.
 autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
