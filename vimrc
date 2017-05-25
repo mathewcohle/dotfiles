@@ -172,6 +172,9 @@ nnoremap <C-l> <C-w>l
 nnoremap <Leader>n <C-w>w
 " highlight last inserted text
 nnoremap gV `[v`]
+" change behaviour or e, move at the end of the word instead before the last
+" letter
+nnoremap e el
 
 
 noremap <Leader>q :quit<CR>
