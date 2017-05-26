@@ -165,6 +165,8 @@ map <F5> :CtrlPClearCache<CR>
 :nmap <C-n> :bnext<CR>
 :nmap <C-N> :bprev<CR>
 
+" Split line
+nnoremap K i<CR><Esc>
 " Quicker window movement
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
