@@ -236,7 +236,6 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['flake8', 'pep8', 'python']
 let g:syntastic_python_flake8_args='--ignore=E501'
 let g:airline_theme='term'
-let g:airline_powerline_fonts = 1
 let g:ycm_python_binary_path = 'python'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_goto_buffer_command='new-or-existing-tab'
