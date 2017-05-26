@@ -202,10 +202,6 @@ noremap <Leader>env :!source env/bin/activate<CR>
 command! J :%!python -m json.tool
 
 " Custom autocommand definitions
-" Start NERDTree
-autocmd VimEnter * NERDTree
-" Jump to the main window.
-autocmd VimEnter * wincmd p
 " Close when no buffer is opened
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -246,7 +242,7 @@ let g:ycm_goto_buffer_command='new-or-existing-tab'
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
-let g:nerdtree_tabs_open_on_console_startup = 1
+let g:nerdtree_tabs_open_on_console_startup = 0
 " CtrlP settings
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
@@ -254,4 +250,3 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
-
