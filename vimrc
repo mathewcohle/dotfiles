@@ -123,7 +123,6 @@ colorscheme boa
 " Numbers
 set number
 set numberwidth=1
-set relativenumber
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
