@@ -156,15 +156,22 @@ noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<
 
 " Custom map
 map <F3> :NERDTreeTabsToggle<CR>
+map <F4> :Tabmerge<CR>
 map <F5> :CtrlPClearCache<CR>
-:nmap j gj
-:nmap k gk
+imap jj <Esc>l
+" Terminal-like beginning and end of line.
+imap <c-e> <c-o>$
+imap <c-a> <c-o>^
+nmap j gj
+nmap k gk
 " Return to previous buffer
-:nmap <C-n> :bnext<CR>
-:nmap <C-N> :bprev<CR>
+nmap <C-n> :bnext<CR>
+nmap <C-N> :bprev<CR>
 
 " Split line
 nnoremap K i<CR><Esc>
+" Map backspace to delete letter in normal mode
+nnoremap <bs> X
 " Quicker window movement
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -176,21 +183,20 @@ nnoremap gV `[v`]
 " change behaviour or e, move at the end of the word instead before the last
 " letter
 nnoremap e el
-
+" turn off search highlight
+nnoremap <Leader><space> :nohlsearch<CR>
 
 noremap <Leader>q :quit<CR>
 noremap <Leader>Q :quit!<CR>
 noremap <Leader>s :update<CR>
-noremap <Leader>e :Texplore<CR>
 noremap <Leader>t :tabn<CR>
 noremap <Leader>T :tabp<CR>
 noremap <Leader>f :Autoformat<CR>
 noremap <Leader>g :YcmCompleter GetDoc<CR>
 noremap <Leader>G :YcmCompleter GoToDefinitionElseDeclaration<CR>
+noremap <Leader>r :YcmCompleter GoToReferences<CR>
 noremap <Leader>py :!clear; python %<CR>
 noremap <Leader>env :!source env/bin/activate<CR>
-" turn off search highlight
-nnoremap <Leader><space> :nohlsearch<CR>
 
 " Commands definitions
 command! J :%!python -m json.tool
