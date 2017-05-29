@@ -92,3 +92,9 @@ if ! shopt -oq posix; then
 fi
 
 TERM=xterm-256color
+
+# macOS related stuff
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias vim='mvim -v'
+  echo 'It just works.'
+fi
