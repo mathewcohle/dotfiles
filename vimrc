@@ -195,6 +195,7 @@ noremap <Leader>f :Autoformat<CR>
 noremap <Leader>g :YcmCompleter GetDoc<CR>
 noremap <Leader>G :YcmCompleter GoToDefinitionElseDeclaration<CR>
 noremap <Leader>r :YcmCompleter GoToReferences<CR>
+noremap <Leader>e :MRU <CR>
 noremap <Leader>py :!clear; python %<CR>
 noremap <Leader>env :!source env/bin/activate<CR>
 
