@@ -239,6 +239,10 @@ let g:airline_theme='term'
 let g:ycm_python_binary_path = 'python'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_goto_buffer_command='new-or-existing-tab'
+let g:ycm_complete_in_comments = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_goto_buffer_command = 'vertical-split' "[ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
