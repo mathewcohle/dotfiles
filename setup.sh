@@ -45,7 +45,7 @@ git clone https://github.com/jistr/vim-nerdtree-tabs.git
 # Setup Ycm
 cd YouCompleteMe/
 git submodule update --init --recursive
-./install.py --clang-completer
+./install.py --clang-completer --gocode-completer
 
 # Setup git
 git config --global core.excludesfile ~/dotfiles/gitignore_global
