@@ -112,12 +112,6 @@ set termguicolors
 set background=dark
 colorscheme boa
 
-" " Block cursor
-" let &t_ti.="\e[1 q"
-" let &t_SI.="\e[5 q"
-" let &t_EI.="\e[1 q"
-" let &t_te.="\e[0 q"
-
 " Numbers
 set number
 set numberwidth=1
@@ -153,18 +147,18 @@ noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<C
 noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
 " Custom map
+map <F2> :Errors<CR>
 map <F3> :NERDTreeTabsToggle<CR>
-map <F4> :Tabmerge<CR>
+map <F4> :call TabmergeLast() <CR>
 map <F5> :CtrlPClearCache<CR>
-imap jj <Esc>l
 " Terminal-like beginning and end of line.
-imap <c-e> <c-o>$
-imap <c-a> <c-o>^
+map <c-e> <c-o>$
+map <c-a> <c-o>^
+
+imap jj <Esc>l
+
 nmap j gj
 nmap k gk
-" Return to previous buffer
-nmap <C-n> :bnext<CR>
-nmap <C-N> :bprev<CR>
 
 " Split line
 nnoremap K i<CR><Esc>
@@ -175,7 +169,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-nnoremap <Leader>n <C-w>w
 " highlight last inserted text
 nnoremap gV `[v`]
 " change behaviour or e, move at the end of the word instead before the last
@@ -187,15 +180,24 @@ nnoremap <Leader><space> :nohlsearch<CR>
 noremap <Leader>q :quit<CR>
 noremap <Leader>Q :quit!<CR>
 noremap <Leader>s :update<CR>
-noremap <Leader>t :tabn<CR>
-noremap <Leader>T :tabp<CR>
+noremap <Leader>n :bnext<CR>
+noremap <Leader>N :bprev<CR>
 noremap <Leader>f :Autoformat<CR>
-noremap <Leader>g :YcmCompleter GetDoc<CR>
-noremap <Leader>G :YcmCompleter GoToDefinitionElseDeclaration<CR>
+noremap <Leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+noremap <Leader>G :YcmCompleter GoToDefinitionElseDeclaration<CR> <bar> :call TabmergeLast() <CR>
 noremap <Leader>r :YcmCompleter GoToReferences<CR>
 noremap <Leader>e :MRU <CR>
-noremap <Leader>py :!clear; python %<CR>
-noremap <Leader>env :!source env/bin/activate<CR>
+" Go to tab by number
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
 
 " Commands definitions
 command! J :%!python -m json.tool
