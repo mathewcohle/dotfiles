@@ -221,6 +221,7 @@ execute pathogen#infect()
 execute pathogen#helptags()
 
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_aggregate_errors = 1
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_loc_list_height = 5
 let g:syntastic_check_on_open = 1
@@ -241,13 +242,11 @@ let g:lightline = {
       \ }
 let g:ycm_python_binary_path = 'python'
 let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_goto_buffer_command='new-or-existing-tab'
 let g:ycm_complete_in_comments = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_add_preview_to_completeopt = 0
-let g:ycm_goto_buffer_command = 'vertical-split' "[ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
-" Treat <li> and <p> tags like the block tags they are
-let g:html_indent_tags = 'li\|p'
+let g:ycm_goto_buffer_command = 'new-or-existing-tab' "[ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
+let g:ycm_autoclose_preview_window_after_completion=1
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 let g:nerdtree_tabs_open_on_console_startup = 0
 " CtrlP settings
