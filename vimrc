@@ -220,17 +220,15 @@ set diffopt+=vertical
 execute pathogen#infect()
 execute pathogen#helptags()
 
-" configure syntastic syntax checking to check on open as well as save
-let g:syntastic_check_on_open=1
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
-let g:syntastic_eruby_ruby_quiet_messages =
-      \ {"regex": "possibly useless use of a variable in void context"}
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_loc_list_height = 5
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 1
+let g:syntastic_auto_jump = 0
 let g:syntastic_python_checkers = ['flake8', 'pep8', 'python']
 let g:syntastic_python_flake8_args='--ignore=E501'
+
 let g:lightline = {
       \ 'colorscheme': 'seoul256',
       \ 'active': {
