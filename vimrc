@@ -262,3 +262,13 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
+
+" Custom functions
+" Recors last tab number to variable
+au TabLeave * let g:lasttab = tabpagenr()
+
+function TabmergeLast()
+" Merge left tab to right tab and focus left window
+    :execute 'Tabmerge ' . g:lasttab . ' right'
+    :wincmd l
+endfunction
