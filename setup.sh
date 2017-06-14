@@ -19,6 +19,7 @@ fi
 # Create symbolic links in $HOME
 cd ~
 ln -s dotfiles/aliases .aliases
+ln -s dotfiles/agignore .agignore
 ln -s dotfiles/bashrc .bashrc
 ln -s dotfiles/gitconfig .gitconfig
 ln -s dotfiles/tmux .tmux
