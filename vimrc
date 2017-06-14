@@ -173,7 +173,7 @@ noremap <Leader>f :Autoformat<CR>
 noremap <Leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 noremap <Leader>G :YcmCompleter GoToDefinitionElseDeclaration<CR> <bar> :call TabmergeLast() <CR>
 noremap <Leader>r :YcmCompleter GoToReferences<CR>
-noremap <Leader>e :MRU <CR>
+noremap <Leader>e :CtrlPMRUFiles <CR>
 " Go to tab by number
 noremap <leader>1 1gt
 noremap <leader>2 2gt
