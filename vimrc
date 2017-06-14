@@ -216,11 +216,6 @@ set complete+=kspell
 " Always use vertical diffs
 set diffopt+=vertical
 
-" Local config
-if filereadable($HOME . "/.vimrc.local")
-  source ~/.vimrc.local
-endif
-
 " Include packages
 execute pathogen#infect()
 execute pathogen#helptags()
