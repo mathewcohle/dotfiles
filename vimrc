@@ -1,10 +1,7 @@
-if has("autocmd")
-  autocmd bufwritepost .vimrc source ~/.vimrc
-endif
-
 " Leader
 let mapleader = ","
 
+syntax on         " swith syntax highlight on
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
 set nowritebackup
@@ -30,27 +27,35 @@ set ignorecase
 set smartcase
 set mouse=a       " enable mouse for all modes
 set clipboard+=unnamed
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-  syntax on
-endif
-
-if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
-endif
-
-" Load matchit.vim, but only if the user hasn't installed a newer version.
-if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
-  runtime! macros/matchit.vim
-endif
+set number
+set numberwidth=1
+" Display extra whitespace
+set list listchars=tab:»·,trail:·,nbsp:·
+" Use one space, not two, after punctuation.
+set nojoinspaces
+" Make it obvious where 79 characters is
+set textwidth=79
+set colorcolumn=+1
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+" Set spellfile to location that is guaranteed to exist, can be symlinked to
+" Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
+set spellfile=$HOME/.vim-spell-en.utf-8.add
+" Autocomplete with dictionary words when spell check is on
+set complete+=kspell
+" Always use vertical diffs
+set diffopt+=vertical
+" Define colorscheme
+set termguicolors
+set background=dark
+colorscheme boa
+highlight Comment cterm=bold
 
 filetype plugin indent on
 
 augroup vimrcEx
   autocmd!
-
   " When editing a file, always jump to the last known cursor position.
   " Don't do it for commit messages, when the position is invalid, or when
   " inside an event handler (happens when dropping a file on gvim).
@@ -58,7 +63,6 @@ augroup vimrcEx
         \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
         \   exe "normal g`\"" |
         \ endif
-
   " Set syntax highlighting for specific file types
   autocmd BufRead,BufNewFile Appraisals set filetype=ruby
   autocmd BufRead,BufNewFile *.md set filetype=markdown
@@ -67,7 +71,8 @@ augroup vimrcEx
 augroup END
 " Auto strip trailing whitespace
 autocmd BufWritePre * %s/\s\+$//e
-
+" " Auto reload vimrc
+" autocmd bufwritepost .vimrc source ~/.vimrc
 " Commenting blocks of code.
 autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
 autocmd FileType sh,ruby,python   let b:comment_leader = '# '
@@ -75,37 +80,7 @@ autocmd FileType conf,fstab       let b:comment_leader = '# '
 autocmd FileType tex              let b:comment_leader = '% '
 autocmd FileType mail             let b:comment_leader = '> '
 autocmd FileType vim              let b:comment_leader = '" '
-noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
-noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
-
-" When the type of shell script is /bin/sh, assume a POSIX-compatible
-" shell for syntax highlighting purposes.
-let g:is_posix = 1
-
-" Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
-
-" Use one space, not two, after punctuation.
-set nojoinspaces
-
-
-" Make it obvious where 80 characters is
-set textwidth=80
-" set colorcolumn=+1
-
-" Define colorscheme
-highlight Comment cterm=bold
-set termguicolors
-set background=dark
-colorscheme boa
-
-" Numbers
-set number
-set numberwidth=1
-
-" Open new split panes to right and bottom, which feels more natural
-set splitbelow
-set splitright
+autocmd FileType sql              let b:comment_leader = '--'
 
 " Tab completion
 " will insert tab at beginning of line,
@@ -122,17 +97,6 @@ endfunction
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <S-Tab> <c-n>
 
-" Commenting blocks of code.
-autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
-autocmd FileType sh,ruby,python   let b:comment_leader = '# '
-autocmd FileType conf,fstab       let b:comment_leader = '# '
-autocmd FileType tex              let b:comment_leader = '% '
-autocmd FileType mail             let b:comment_leader = '> '
-autocmd FileType vim              let b:comment_leader = '" '
-autocmd FileType sql              let b:comment_leader = '--'
-noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
-noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
-
 " Custom map
 map <F2> :Errors<CR>
 map <F3> :NERDTreeTabsToggle<CR>
@@ -141,12 +105,9 @@ map <F5> :CtrlPClearCache<CR>
 " Terminal-like beginning and end of line.
 map <c-e> <c-o>$
 map <c-a> <c-o>^
-
 imap jj <Esc>l
-
 nmap j gj
 nmap k gk
-
 " Split line
 nnoremap K i<CR><Esc>
 " Map backspace to delete letter in normal mode
@@ -185,23 +146,9 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
-
-" Commands definitions
-command! J :%!python -m json.tool
-
-" Custom autocommand definitions
-" Close when no buffer is opened
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Set spellfile to location that is guaranteed to exist, can be symlinked to
-" Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
-set spellfile=$HOME/.vim-spell-en.utf-8.add
-
-" Autocomplete with dictionary words when spell check is on
-set complete+=kspell
-
-" Always use vertical diffs
-set diffopt+=vertical
+" Map keys to (un)comment
+noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
 " Include packages
 execute pathogen#infect()
@@ -234,8 +181,10 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_goto_buffer_command = 'new-or-existing-tab' "[ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
 let g:ycm_autoclose_preview_window_after_completion=1
+
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 let g:nerdtree_tabs_open_on_console_startup = 0
+
 " CtrlP settings
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 'ET'
@@ -253,12 +202,22 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag -Q -l --hidden -g "" %s'
 endif
 
+" When the type of shell script is /bin/sh, assume a POSIX-compatible
+" shell for syntax highlighting purposes.
+let g:is_posix = 1
+
 " Custom functions
 " Recors last tab number to variable
+let g:lasttab = 1
 au TabLeave * let g:lasttab = tabpagenr()
 
-function TabmergeLast()
+function! TabmergeLast()
 " Merge left tab to right tab and focus left window
     :execute 'Tabmerge ' . g:lasttab . ' right'
     :wincmd l
 endfunction
+
+" Custom command definitions
+command! J :%!python -m json.tool
+" Close when no buffer is opened
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
