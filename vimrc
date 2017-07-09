@@ -215,7 +215,7 @@ au TabLeave * let g:lasttab = tabpagenr()
 
 function! TabmergeLast()
 " Merge left tab to right tab and focus left window
-    :execute 'Tabmerge ' . g:lasttab . ' right'
+    :execute 'Tabmerge ' . g:lasttab . ' left'
     :wincmd l
 endfunction
 
