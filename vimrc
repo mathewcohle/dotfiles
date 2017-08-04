@@ -131,6 +131,7 @@ noremap <Leader>s :update<CR>
 noremap <Leader>n :bnext<CR>
 noremap <Leader>N :bprev<CR>
 noremap <Leader>f :Autoformat<CR>
+noremap <Leader>d :YcmCompleter GetDoc<CR>
 noremap <Leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 noremap <Leader>G :YcmCompleter GoToDefinitionElseDeclaration<CR> <bar> :call TabmergeLast() <CR>
 noremap <Leader>r :YcmCompleter GoToReferences<CR>
