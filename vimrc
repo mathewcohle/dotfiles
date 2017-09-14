@@ -105,7 +105,6 @@ map <F5> :CtrlPClearCache<CR>
 " Terminal-like beginning and end of line.
 map <c-e> <c-o>$
 map <c-a> <c-o>^
-imap jj <Esc>l
 nmap j gj
 nmap k gk
 " Split line
@@ -122,8 +121,6 @@ nnoremap gV `[v`]
 " change behaviour or e, move at the end of the word instead before the last
 " letter
 nnoremap e el
-" turn off search highlight
-nnoremap <Leader><space> :nohlsearch<CR>
 
 noremap <Leader>q :quit<CR>
 noremap <Leader>Q :quit!<CR>
