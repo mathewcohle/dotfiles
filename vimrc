@@ -121,6 +121,7 @@ nnoremap gV `[v`]
 " change behaviour or e, move at the end of the word instead before the last
 " letter
 nnoremap e el
+nnoremap \ :Ag<SPACE>
 
 noremap <Leader>q :quit<CR>
 noremap <Leader>Q :quit!<CR>
@@ -198,9 +199,11 @@ let g:ctrlp_custom_ignore = {
   \ }
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag -Q -l --hidden -g "" %s'
 endif
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 
 " When the type of shell script is /bin/sh, assume a POSIX-compatible
 " shell for syntax highlighting purposes.
