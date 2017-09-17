@@ -2,13 +2,11 @@
 let mapleader = ","
 
 syntax on         " swith syntax highlight on
-set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
 set nowritebackup
 set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
 set noshowmode
 set history=500
-set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
@@ -21,8 +19,8 @@ set expandtab
 set wildmenu      " visual autocomplete for command menu
 set lazyredraw    " redraw only when we need to.
 set showmatch     " highlight matching [{()}]
-set incsearch           " search as characters are entered
-set hlsearch            " highlight matches
+set incsearch     " search as characters are entered
+set hlsearch      " highlight matches
 set ignorecase
 set smartcase
 set mouse=a       " enable mouse for all modes
@@ -46,10 +44,12 @@ set spellfile=$HOME/.vim-spell-en.utf-8.add
 set complete+=kspell
 " Always use vertical diffs
 set diffopt+=vertical
+" Get rid of '|' in vertical split and weird color
+set fillchars=
+autocmd ColorScheme * highlight VertSplit cterm=NONE ctermfg=NONE ctermbg=NONE
 " Define colorscheme
-set termguicolors
-set background=dark
 colorscheme boa
+set termguicolors
 highlight Comment cterm=bold
 
 filetype plugin indent on
@@ -63,11 +63,6 @@ augroup vimrcEx
         \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
         \   exe "normal g`\"" |
         \ endif
-  " Set syntax highlighting for specific file types
-  autocmd BufRead,BufNewFile Appraisals set filetype=ruby
-  autocmd BufRead,BufNewFile *.md set filetype=markdown
-  autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
-  autocmd BufRead,BufNewFile .jsons set filetype=json
 augroup END
 " Auto strip trailing whitespace
 autocmd BufWritePre * %s/\s\+$//e
@@ -94,21 +89,18 @@ function! InsertTabWrapper()
     return "\<c-p>"
   endif
 endfunction
-inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <S-Tab> <c-n>
+inoremap <S-Tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <Tab> <c-n>
 
-" Custom map
-map <F2> :Errors<CR>
-map <F3> :NERDTreeTabsToggle<CR>
-map <F4> :call TabmergeLast() <CR>
-map <F5> :CtrlPClearCache<CR>
-" Terminal-like beginning and end of line.
-map <c-e> <c-o>$
-map <c-a> <c-o>^
 nmap j gj
 nmap k gk
+" Custom map
+nnoremap <F2> :Errors<CR>
+nnoremap <F3> :NERDTreeToggle<CR>
+nnoremap <F4> :Dispatch<SPACE>
 " Split line
 nnoremap K i<CR><Esc>
+nnoremap \ :Ag<CR>
 " Map backspace to delete letter in normal mode
 nnoremap <bs> X
 " Quicker window movement
@@ -116,43 +108,26 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-" highlight last inserted text
-nnoremap gV `[v`]
-" change behaviour or e, move at the end of the word instead before the last
-" letter
-nnoremap e el
-nnoremap \ :Ag<SPACE>
-
-noremap <Leader>q :quit<CR>
-noremap <Leader>Q :quit!<CR>
-noremap <Leader>s :update<CR>
-noremap <Leader>n :bnext<CR>
-noremap <Leader>N :bprev<CR>
-noremap <Leader>f :Autoformat<CR>
-noremap <Leader>d :YcmCompleter GetDoc<CR>
-noremap <Leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-noremap <Leader>G :YcmCompleter GoToDefinitionElseDeclaration<CR> <bar> :call TabmergeLast() <CR>
-noremap <Leader>r :YcmCompleter GoToReferences<CR>
-noremap <Leader>e :CtrlPMRUFiles <CR>
-" Go to tab by number
-noremap <leader>1 1gt
-noremap <leader>2 2gt
-noremap <leader>3 3gt
-noremap <leader>4 4gt
-noremap <leader>5 5gt
-noremap <leader>6 6gt
-noremap <leader>7 7gt
-noremap <leader>8 8gt
-noremap <leader>9 9gt
-noremap <leader>0 :tablast<cr>
+nnoremap <C-p> :Files<CR>
+nnoremap <C-b> :Buffers<CR>
+nnoremap <Leader>q :quit<CR>
+nnoremap <Leader>Q :quit!<CR>
+nnoremap <Leader>s :update<CR>
+nnoremap <Leader>n :bnext<CR>
+nnoremap <Leader>N :bprev<CR>
+nnoremap <Leader>f :Autoformat<CR>
+nnoremap <Leader>d :YcmCompleter GetDoc<CR>
+nnoremap <Leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <Leader>r :YcmCompleter GoToReferences<CR>
 " Map keys to (un)comment
-noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
-noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+nnoremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+nnoremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
 " Include packages
 execute pathogen#infect()
 execute pathogen#helptags()
 
+" Syntastic setttings
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_auto_loc_list = 2
@@ -163,6 +138,7 @@ let g:syntastic_auto_jump = 0
 let g:syntastic_python_checkers = ['flake8', 'pep8', 'python']
 let g:syntastic_python_flake8_args='--ignore=E501'
 
+" Lightline setttings
 let g:lightline = {
       \ 'colorscheme': 'seoul256',
       \ 'active': {
@@ -175,14 +151,16 @@ let g:lightline = {
       \   'gitbranch': 'LightlineFugitive',
       \ },
       \ }
+
+" YcmCompleter settings
 let g:ycm_python_binary_path = 'python'
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_add_preview_to_completeopt = 0
-let g:ycm_goto_buffer_command = 'new-or-existing-tab' "[ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
-let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_goto_buffer_command = 'same-buffer' "[ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
 
+" NERDTree settings
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 let g:nerdtree_tabs_open_on_console_startup = 0
 
@@ -206,18 +184,7 @@ command! -bang -nargs=* Ag
 " shell for syntax highlighting purposes.
 let g:is_posix = 1
 
-" Custom functions
-" Recors last tab number to variable
-let g:lasttab = 1
-au TabLeave * let g:lasttab = tabpagenr()
-
-function! TabmergeLast()
-" Merge left tab to right tab and focus left window
-    :execute 'Tabmerge ' . g:lasttab . ' left'
-    :wincmd l
-endfunction
-
 " Custom command definitions
-command! J :%!python -m json.tool
+command! Json :%!python -m json.tool
 " Close when no buffer is opened
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
