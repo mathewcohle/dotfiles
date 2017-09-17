@@ -186,24 +186,21 @@ let g:ycm_autoclose_preview_window_after_completion=1
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 let g:nerdtree_tabs_open_on_console_startup = 0
 
-" CtrlP settings
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 'ET'
-let g:ctrlp_working_path_mode = 'ra'
-" ag is fast enough that CtrlP doesn't need to cache
-let g:ctrlp_use_caching = 0
-" Note it works only if ctrlp_user_command is not set
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(pyc)$',
-  \ }
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag -Q -l --hidden -g "" %s'
-endif
-command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+" FZF settings
+let $FZF_DEFAULT_COMMAND = 'ag -Q -l --hidden -g ""'
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+" Files command with preview window
+command! -bang -nargs=? -complete=dir Files
+      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+" Augmenting Ag command using fzf#vim#with_preview function
+"   :Ag  - Start fzf with hidden preview window that can be enabled with "?" key
+"   :Ag! - Start fzf in fullscreen and display the preview window above
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:30%'),
+  \                 <bang>0)
 
 " When the type of shell script is /bin/sh, assume a POSIX-compatible
 " shell for syntax highlighting purposes.
