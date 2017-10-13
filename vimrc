@@ -118,6 +118,7 @@ nnoremap <Leader>N :bprev<CR>
 nnoremap <Leader>f :Autoformat<CR>
 nnoremap <Leader>d :YcmCompleter GetDoc<CR>
 nnoremap <Leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <Leader>G :vsp <CR>:exec("YcmCompleter GoToDefinitionElseDeclaration")<CR>
 nnoremap <Leader>r :YcmCompleter GoToReferences<CR>
 " Map keys to (un)comment
 nnoremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
