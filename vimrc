@@ -76,6 +76,11 @@ autocmd FileType tex              let b:comment_leader = '% '
 autocmd FileType mail             let b:comment_leader = '> '
 autocmd FileType vim              let b:comment_leader = '" '
 autocmd FileType sql              let b:comment_leader = '--'
+" Automatically update copyright notice with current year
+autocmd BufWritePre *
+  \ if &modified |
+  \   exe "g#\\Copyright (C) \\(".strftime("%Y")."\\)\\@![0-9]\\{4\\}\\(-".strftime("%Y")."\\)\\@!#s#\\([0-9]\\{4\\}\\)\\(-[0-9]\\{4\\}\\)\\?#\\1-".strftime("%Y") |
+  \ endif
 
 " Tab completion
 " will insert tab at beginning of line,
