@@ -76,6 +76,7 @@ autocmd FileType tex              let b:comment_leader = '% '
 autocmd FileType mail             let b:comment_leader = '> '
 autocmd FileType vim              let b:comment_leader = '" '
 autocmd FileType sql              let b:comment_leader = '--'
+autocmd FileType yaml             let b:comment_leader = '# '
 " Automatically update copyright notice with current year
 autocmd BufWritePre *
   \ if &modified |
