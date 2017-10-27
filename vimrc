@@ -48,7 +48,7 @@ set diffopt+=vertical
 set fillchars=
 autocmd ColorScheme * highlight VertSplit cterm=NONE ctermfg=NONE ctermbg=NONE
 " Define colorscheme
-colorscheme boa
+colorscheme molokai
 set termguicolors
 highlight Comment cterm=bold
 
