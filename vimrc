@@ -100,7 +100,6 @@ inoremap <Tab> <c-n>
 nmap j gj
 nmap k gk
 " Custom map
-nnoremap <F2> :Errors<CR>
 nnoremap <F3> :NERDTreeToggle<CR>
 nnoremap <F4> :Dispatch<SPACE>
 " Split line
@@ -120,6 +119,7 @@ nnoremap <Leader>Q :quit!<CR>
 nnoremap <Leader>s :update<CR>
 nnoremap <Leader>n :bnext<CR>
 nnoremap <Leader>N :bprev<CR>
+nnoremap <Leader>f :ALEFix
 nnoremap <Leader>d :YcmCompleter GetDoc<CR>
 nnoremap <Leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <Leader>G :vsp <CR>:exec("YcmCompleter GoToDefinitionElseDeclaration")<CR>
@@ -132,16 +132,23 @@ nnoremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')
 execute pathogen#infect()
 execute pathogen#helptags()
 
-" Syntastic setttings
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_loc_list_height = 5
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_auto_jump = 0
-let g:syntastic_python_checkers = ['flake8', 'pep8', 'python']
-let g:syntastic_python_flake8_args='--ignore=E501'
+" Ale settings
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+let g:ale_set_quickfix = 1
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_linters = {'python': ['autopep8', 'flake8']}
+let g:ale_fixers = {'python': [
+      \ 'autopep8',
+      \ 'isort',
+      \ 'remove_trailing_lines',
+      \ 'trim_whitespace' ]
+      \}
 
 " Lightline setttings
 let g:lightline = {

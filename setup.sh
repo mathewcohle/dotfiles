@@ -35,7 +35,7 @@ git clone https://github.com/junegunn/fzf.vim.git
 git clone https://github.com/junegunn/fzf.git
 git clone https://github.com/itchyny/lightline.vim
 git clone https://github.com/scrooloose/nerdtree.git
-git clone --depth=1 https://github.com/vim-syntastic/syntastic.git
+git clone https://github.com/w0rp/ale.git
 git clone https://github.com/Chiel92/vim-autoformat.git
 git clone git://github.com/tpope/vim-dispatch.git
 git clone https://github.com/tpope/vim-fugitive.git
