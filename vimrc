@@ -154,13 +154,11 @@ let g:ale_fixers = {'python': [
 
 " Lightline setttings
 let g:lightline = {
-      \ 'colorscheme': 'seoul256',
+      \ 'colorscheme': 'molokai',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'relativepath', 'modified' ] ]
       \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' },
       \ 'component_function': {
       \   'gitbranch': 'LightlineFugitive',
       \ },
