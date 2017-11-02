@@ -51,6 +51,7 @@ autocmd ColorScheme * highlight VertSplit cterm=NONE ctermfg=NONE ctermbg=NONE
 colorscheme molokai
 set termguicolors
 highlight Comment cterm=bold
+highlight Search guibg=#585858 guifg=NONE
 
 filetype plugin indent on
 
