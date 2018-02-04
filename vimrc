@@ -78,6 +78,8 @@ autocmd FileType mail             let b:comment_leader = '> '
 autocmd FileType vim              let b:comment_leader = '" '
 autocmd FileType sql              let b:comment_leader = '--'
 autocmd FileType yaml             let b:comment_leader = '# '
+" Shortcut to open buffer in vsplit from quickfix windov
+autocmd! FileType qf nnoremap <buffer> <C-v> <C-w><Enter><C-w>L
 " Automatically update copyright notice with current year
 autocmd BufWritePre *
   \ if &modified |
