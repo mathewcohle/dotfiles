@@ -105,7 +105,6 @@ nmap j gj
 nmap k gk
 " Custom map
 nnoremap <F3> :NERDTreeToggle<CR>
-nnoremap <F4> :Dispatch<SPACE>
 " Split line
 nnoremap K i<CR><Esc>
 nnoremap \ :Ag<CR>
