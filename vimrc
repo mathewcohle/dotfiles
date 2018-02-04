@@ -118,6 +118,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <C-p> :Files<CR>
 nnoremap <C-b> :Buffers<CR>
+nnoremap <Leader><Space> :nohlsearch<CR>
 nnoremap <Leader>q :quit<CR>
 nnoremap <Leader>Q :quit!<CR>
 nnoremap <Leader>s :update<CR>
