@@ -25,8 +25,6 @@ set ignorecase
 set smartcase
 set mouse=a       " enable mouse for all modes
 set clipboard+=unnamed
-set number
-set numberwidth=1
 " Display extra whitespace
 set list listchars=tab:»·,trail:·,nbsp:·
 " Use one space, not two, after punctuation.
