@@ -157,7 +157,15 @@ let g:lightline = {
       \ 'colorscheme': 'molokai',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'relativepath', 'modified' ] ]
+      \             [ 'gitbranch', 'relativepath', 'modified' ] ],
+      \   'right': [['lineinfo'],
+      \             ['percent'],
+      \             ['fileformat', 'fileencoding', 'filetype', 'charvaluehex']]
+      \ },
+      \ 'inactive': {
+      \   'left': [['mode', 'paste'],
+      \            ['relativepath', 'modified']],
+      \   'right': []
       \ },
       \ 'component_function': {
       \   'gitbranch': 'LightlineFugitive',
