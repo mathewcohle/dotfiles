@@ -1,3 +1,6 @@
 [submodule "vim/bundle/table-mode"]
 	path = vim/bundle/table-mode
 	url = git@github.com:dhruvasagar/vim-table-mode.git
+[submodule "vim/bundle/vim-autoformat"]
+	path = vim/bundle/vim-autoformat
+	url = https://github.com/Chiel92/vim-autoformat.git
