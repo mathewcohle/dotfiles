@@ -73,6 +73,7 @@ autocmd FileType sh,ruby,python   let b:comment_leader = '# '
 autocmd FileType conf,fstab       let b:comment_leader = '# '
 autocmd FileType tex              let b:comment_leader = '% '
 autocmd FileType mail             let b:comment_leader = '> '
+autocmd FileType rust             let b:comment_leader = '// '
 autocmd FileType vim              let b:comment_leader = '" '
 autocmd FileType sql              let b:comment_leader = '--'
 autocmd FileType yaml             let b:comment_leader = '# '
@@ -137,7 +138,7 @@ execute pathogen#helptags()
 " Ale settings
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 'never'
+" let g:ale_lint_on_text_changed = 'never'
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
 let g:ale_set_quickfix = 1
@@ -199,6 +200,9 @@ command! -bang -nargs=* Ag
   \                 <bang>0 ? fzf#vim#with_preview('up:60%')
   \                         : fzf#vim#with_preview('right:30%'),
   \                 <bang>0)
+" table-mode settings
+let g:table_mode_corner_corner='+'
+let g:table_mode_header_fillchar='='
 
 " When the type of shell script is /bin/sh, assume a POSIX-compatible
 " shell for syntax highlighting purposes.
