@@ -31,3 +31,9 @@
 [submodule "vim/bundle/vim-surround"]
 	path = vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule "vim/bundle/dracula-theme"]
+	path = vim/bundle/dracula-theme
+	url = git@github.com:dracula/vim.git
+[submodule "vim/bundle/vim-isort"]
+	path = vim/bundle/vim-isort
+	url = git@github.com:fisadev/vim-isort.git

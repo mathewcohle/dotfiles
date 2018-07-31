@@ -204,6 +204,9 @@ command! -bang -nargs=* Ag
 let g:table_mode_corner_corner='+'
 let g:table_mode_header_fillchar='='
 
+" isort settings
+let g:vim_isort_python_version = 'python3'
+
 " When the type of shell script is /bin/sh, assume a POSIX-compatible
 " shell for syntax highlighting purposes.
 let g:is_posix = 1
