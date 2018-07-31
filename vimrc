@@ -24,9 +24,9 @@ set hlsearch      " highlight matches
 set ignorecase
 set smartcase
 set mouse=a       " enable mouse for all modes
-set clipboard+=unnamed
+set clipboard=unnamedplus
 " Display extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
+" set list listchars=tab:»·,trail:·,nbsp:·
 " Use one space, not two, after punctuation.
 set nojoinspaces
 " Make it obvious where 79 characters is
@@ -38,18 +38,16 @@ set splitright
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
 set spellfile=$HOME/.vim-spell-en.utf-8.add
+set encoding=utf-8
 " Autocomplete with dictionary words when spell check is on
 set complete+=kspell
 " Always use vertical diffs
 set diffopt+=vertical
 " Get rid of '|' in vertical split and weird color
-set fillchars=
-autocmd ColorScheme * highlight VertSplit cterm=NONE ctermfg=NONE ctermbg=NONE
 " Define colorscheme
-colorscheme molokai
+let g:gruvbox_italic=1
+colorscheme gruvbox
 set termguicolors
-highlight Comment cterm=bold
-highlight Search guibg=#585858 guifg=NONE
 
 filetype plugin indent on
 
@@ -77,12 +75,13 @@ autocmd FileType rust             let b:comment_leader = '// '
 autocmd FileType vim              let b:comment_leader = '" '
 autocmd FileType sql              let b:comment_leader = '--'
 autocmd FileType yaml             let b:comment_leader = '# '
+autocmd FileType dockerfile       let b:comment_leader = '# '
 " Shortcut to open buffer in vsplit from quickfix windov
 autocmd! FileType qf nnoremap <buffer> <C-v> <C-w><Enter><C-w>L
 " Automatically update copyright notice with current year
 autocmd BufWritePre *
   \ if &modified |
-  \   exe "g#\\Copyright (C) \\(".strftime("%Y")."\\)\\@![0-9]\\{4\\}\\(-".strftime("%Y")."\\)\\@!#s#\\([0-9]\\{4\\}\\)\\(-[0-9]\\{4\\}\\)\\?#\\1-".strftime("%Y") |
+  \   exe "g#\\cCopyright (C) \\(".strftime("%Y")."\\)\\@![0-9]\\{4\\}\\(-".strftime("%Y")."\\)\\@!#s#\\([0-9]\\{4\\}\\)\\(-[0-9]\\{4\\}\\)\\?#\\1-".strftime("%Y") |
   \ endif
 
 " Tab completion
@@ -122,14 +121,21 @@ nnoremap <Leader>Q :quit!<CR>
 nnoremap <Leader>s :update<CR>
 nnoremap <Leader>n :bnext<CR>
 nnoremap <Leader>N :bprev<CR>
-nnoremap <Leader>f :ALEFix
 nnoremap <Leader>d :YcmCompleter GetDoc<CR>
 nnoremap <Leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <Leader>G :vsp <CR>:exec("YcmCompleter GoToDefinitionElseDeclaration")<CR>
 nnoremap <Leader>r :YcmCompleter GoToReferences<CR>
+nnoremap <Leader>i :Git<space>
+nnoremap <Leader>e <Esc>:w<CR>:!clear;python %<CR>
+nnoremap <Leader>t <Esc>:w<CR>:!clear;nosetests -vs %<CR>
 " Map keys to (un)comment
 noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+" Map keys for movement in command line
+:cnoremap <C-h> <Right>
+:cnoremap <C-l> <Left>
+:cnoremap <C-j> <Down>
+:cnoremap <C-k> <Up>
 
 " Include packages
 execute pathogen#infect()
@@ -155,7 +161,7 @@ let g:ale_fixers = {'python': [
 
 " Lightline setttings
 let g:lightline = {
-      \ 'colorscheme': 'molokai',
+      \ 'colorscheme': 'seoul256',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'relativepath', 'modified' ] ],
