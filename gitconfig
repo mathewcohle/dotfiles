@@ -11,7 +11,7 @@
   st = status
   rb = rebase
 [core]
-  excludesfile = ~/dotfiles/gitignore_global
+  excludesfile = ~/.gitignore_global
   autocrlf = input
   editor = vim
 [fetch]
