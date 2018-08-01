@@ -2,3 +2,4 @@ alias ll="ls -alhH"
 alias grep='grep --color=auto'
 alias wordy='wc -w * | sort | tail -n10'
 alias kubelogs='kubectl logs -f --timestamps'
+alias xclip='xclip -selection clipboard'
