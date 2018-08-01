@@ -129,8 +129,8 @@ nnoremap <Leader>i :Git<space>
 nnoremap <Leader>e <Esc>:w<CR>:!clear;python %<CR>
 nnoremap <Leader>t <Esc>:w<CR>:!clear;nosetests -vs %<CR>
 " Map keys to (un)comment
-noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
-noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+noremap <silent> <Leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+noremap <silent> <Leader>cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 " Map keys for movement in command line
 :cnoremap <C-h> <Right>
 :cnoremap <C-l> <Left>
