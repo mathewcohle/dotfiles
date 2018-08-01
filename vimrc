@@ -131,6 +131,8 @@ nnoremap <Leader>t <Esc>:w<CR>:!clear;nosetests -vs %<CR>
 " Map keys to (un)comment
 noremap <silent> <Leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> <Leader>cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+" Convient way to copy path to current buffer
+noremap <Leader>cf :let @+=expand("%")<CR>
 " Map keys for movement in command line
 :cnoremap <C-h> <Right>
 :cnoremap <C-l> <Left>
