@@ -127,7 +127,7 @@ nnoremap <Leader>G :vsp <CR>:exec("YcmCompleter GoToDefinitionElseDeclaration")<
 nnoremap <Leader>r :YcmCompleter GoToReferences<CR>
 nnoremap <Leader>i :Git<space>
 nnoremap <Leader>e <Esc>:w<CR>:!clear;python %<CR>
-nnoremap <Leader>t <Esc>:w<CR>:!clear;nosetests -vs %<CR>
+nnoremap <Leader>t <Esc>:w<CR>:!clear;nosetests --logging-level=INFO -vs %<CR>
 " Map keys to (un)comment
 noremap <silent> <Leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> <Leader>cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
