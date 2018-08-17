@@ -126,6 +126,9 @@ nnoremap <Leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <Leader>G :vsp <CR>:exec("YcmCompleter GoToDefinitionElseDeclaration")<CR>
 nnoremap <Leader>r :YcmCompleter GoToReferences<CR>
 nnoremap <Leader>i :Git<space>
+nnoremap <Leader>vl :Gblame<CR>
+nnoremap <Leader>vc :Commits<CR>
+nnoremap <Leader>vb :BCommits<CR>
 nnoremap <Leader>e <Esc>:w<CR>:!clear;python %<CR>
 nnoremap <Leader>t <Esc>:w<CR>:!clear;nosetests --logging-level=INFO -vs %<CR>
 " Map keys to (un)comment
