@@ -48,6 +48,10 @@ set diffopt+=vertical
 let g:gruvbox_italic=1
 colorscheme gruvbox
 set termguicolors
+" Disable folding
+set nofoldenable
+" Enable auto indent
+set autoindent
 
 filetype plugin indent on
 
