@@ -1,6 +1,7 @@
 [user]
-  name = mathewcohle
-  email = mathewcohle@gmail.com
+  name = Matej Čamaj
+  email = camaj@protonmail.com
+	signingkey = C89F5D8FB683E377C18BE2602B4FDD4C85C3F961
 [color]
   ui = auto
 [alias]
@@ -31,3 +32,5 @@
     conflictstyle = diff3
 [interactive]
     singleKey = true
+[commit]
+	gpgsign = true
