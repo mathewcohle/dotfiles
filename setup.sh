@@ -8,7 +8,7 @@ if ! [ -x "$(command -v cmake)" ]; then
   exit 1
 fi
 
-if [[ -f .aliases || -f .bashrc || -f .gitconfig || -f .tmux || -f tmux.conf ||
+if [[ -f .aliases || -f .gitconfig || -f .tmux || -f tmux.conf ||
   -f .vim || -f .vimrc || -f .zshrc ]]; then
   echo 'Some dotfile already exists, not making any smart move automatically.'
   echo 'Either remove these dotfiles or edit this script manually.'
@@ -20,7 +20,6 @@ fi
 cd ~
 ln -s dotfiles/aliases .aliases
 ln -s dotfiles/agignore .agignore
-ln -s dotfiles/bashrc .bashrc
 ln -s dotfiles/gitconfig .gitconfig
 ln -s dotfiles/tmux .tmux
 ln -s dotfiles/tmux.conf .tmux.conf
