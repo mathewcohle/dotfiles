@@ -13,7 +13,8 @@ set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 set cursorline    " highlight current line
 set tabstop=2
-set shiftwidth=2
+set shiftwidth=4  " http://vimdoc.sourceforge.net/htmldoc/options.html#'shiftwidth'
+set softtabstop=4
 set shiftround
 set expandtab
 set wildmenu      " visual autocomplete for command menu
@@ -52,6 +53,7 @@ set termguicolors
 set nofoldenable
 " Enable auto indent
 set autoindent
+set smartindent
 
 filetype plugin indent on
 
