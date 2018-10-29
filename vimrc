@@ -136,6 +136,7 @@ nnoremap <Leader>fl :Gblame<CR>
 nnoremap <Leader>fc :Commits<CR>
 nnoremap <Leader>fb :BCommits<CR>
 nnoremap <Leader>fs :Gstatus<CR>
+nnoremap <Leader>nf :NERDTreeFind<CR>
 nnoremap <Leader>e <Esc>:w<CR>:!clear;python %<CR>
 nnoremap <Leader>t <Esc>:w<CR>:!clear;nosetests --logging-level=INFO -vs %<CR>
 " Map keys to (un)comment
