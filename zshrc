@@ -10,6 +10,7 @@ plugins=(
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 export LC_ALL="en_US.UTF-8"
+export EDITOR="vim"
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
