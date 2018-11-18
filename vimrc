@@ -67,6 +67,11 @@ augroup vimrcEx
         \   exe "normal g`\"" |
         \ endif
 augroup END
+" setup for use with neomutt
+augroup filetypedetect
+  " Mail
+  autocmd BufRead,BufNewFile *neomutt-*              setfiletype mail
+augroup END
 " Auto strip trailing whitespace
 autocmd BufWritePre * %s/\s\+$//e
 " " Auto reload vimrc
@@ -82,6 +87,7 @@ autocmd FileType vim              let b:comment_leader = '" '
 autocmd FileType sql              let b:comment_leader = '--'
 autocmd FileType yaml             let b:comment_leader = '# '
 autocmd FileType dockerfile       let b:comment_leader = '# '
+autocmd FileType neomuttrc        let b:comment_leader = '# '
 " Shortcut to open buffer in vsplit from quickfix windov
 autocmd! FileType qf nnoremap <buffer> <C-v> <C-w><Enter><C-w>L
 " Automatically update copyright notice with current year
