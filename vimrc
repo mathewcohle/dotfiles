@@ -1,7 +1,7 @@
 " Leader
 let mapleader = ","
 
-syntax on         " swith syntax highlight on
+syntax on         " switch syntax highlight on
 set nobackup
 set nowritebackup
 set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
@@ -26,8 +26,6 @@ set ignorecase
 set smartcase
 set mouse=a       " enable mouse for all modes
 set clipboard=unnamedplus
-" Display extra whitespace
-" set list listchars=tab:»·,trail:·,nbsp:·
 " Use one space, not two, after punctuation.
 set nojoinspaces
 " Make it obvious where 79 characters is
@@ -39,8 +37,7 @@ set splitright
 set encoding=utf-8
 " Always use vertical diffs
 set diffopt+=vertical
-" Get rid of '|' in vertical split and weird color
-" Define colorscheme
+" Define color scheme
 let g:gruvbox_italic=1
 colorscheme gruvbox
 set termguicolors
@@ -80,8 +77,6 @@ augroup filetypedetect
 augroup END
 " Auto strip trailing whitespace
 autocmd BufWritePre * %s/\s\+$//e
-" " Auto reload vimrc
-" autocmd bufwritepost .vimrc source ~/.vimrc
 " Commenting blocks of code.
 autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
 autocmd FileType sh,ruby,python   let b:comment_leader = '# '
@@ -94,7 +89,7 @@ autocmd FileType sql              let b:comment_leader = '--'
 autocmd FileType yaml             let b:comment_leader = '# '
 autocmd FileType dockerfile       let b:comment_leader = '# '
 autocmd FileType neomuttrc        let b:comment_leader = '# '
-" Shortcut to open buffer in vsplit from quickfix windov
+" Shortcut to open buffer in vsplit from quickfix window
 autocmd! FileType qf nnoremap <buffer> <C-v> <C-w><Enter><C-w>L
 " Automatically update copyright notice with current year
 autocmd BufWritePre *
@@ -154,7 +149,7 @@ nnoremap <Leader>t <Esc>:w<CR>:!clear;nosetests --logging-level=INFO -vs %<CR>
 " Map keys to (un)comment
 noremap <silent> <Leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> <Leader>cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
-" Convient way to copy path to current buffer
+" Convenient way to copy path to current buffer
 noremap <Leader>cf :let @+=expand("%")<CR>
 " Map keys for movement in command line
 :cnoremap <C-h> <Right>
@@ -184,7 +179,7 @@ let g:ale_fixers = {'python': [
       \ 'trim_whitespace' ]
       \}
 
-" Lightline setttings
+" Lightline settings
 let g:lightline = {
       \ 'colorscheme': 'seoul256',
       \ 'active': {
@@ -225,7 +220,7 @@ command! -bang -nargs=? -complete=dir Files
       \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 " Augmenting Ag command using fzf#vim#with_preview function
 "   :Ag  - Start fzf with hidden preview window that can be enabled with "?" key
-"   :Ag! - Start fzf in fullscreen and display the preview window above
+"   :Ag! - Start fzf in full screen and display the preview window above
 command! -bang -nargs=* Ag
   \ call fzf#vim#ag(<q-args>,
   \                 <bang>0 ? fzf#vim#with_preview('up:60%')
