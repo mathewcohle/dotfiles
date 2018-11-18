@@ -36,12 +36,7 @@ set colorcolumn=+1
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
-" Set spellfile to location that is guaranteed to exist, can be symlinked to
-" Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
-set spellfile=$HOME/.vim-spell-en.utf-8.add
 set encoding=utf-8
-" Autocomplete with dictionary words when spell check is on
-set complete+=kspell
 " Always use vertical diffs
 set diffopt+=vertical
 " Get rid of '|' in vertical split and weird color
@@ -54,6 +49,17 @@ set nofoldenable
 " Enable auto indent
 set autoindent
 set smartindent
+" Spell check configuration
+set spell spelllang=en_us
+hi clear SpellBad
+hi SpellBad cterm=underline
+hi clear SpellRare
+hi SpellRare cterm=underline
+hi clear SpellCap
+hi SpellCap cterm=underline
+hi clear SpellLocal
+hi SpellLocal cterm=underline
+set complete+=kspell
 
 filetype plugin indent on
 
