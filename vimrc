@@ -135,8 +135,8 @@ nnoremap <Leader>s :update<CR>
 nnoremap <Leader>n :bnext<CR>
 nnoremap <Leader>N :bprev<CR>
 nnoremap <Leader>d :YcmCompleter GetDoc<CR>
-nnoremap <Leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <Leader>G :vsp <CR>:exec("YcmCompleter GoToDefinitionElseDeclaration")<CR>
+nnoremap <Leader>g :YcmCompleter GoToDeclaration<CR>
+nnoremap <Leader>G :vsp <CR>:exec("YcmCompleter GoToDeclaration")<CR>
 nnoremap <Leader>r :YcmCompleter GoToReferences<CR>
 nnoremap <Leader>i :Git<space>
 nnoremap <Leader>fl :Gblame<CR>
