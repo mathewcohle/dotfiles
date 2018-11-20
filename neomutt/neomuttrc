@@ -53,7 +53,7 @@ folder-hook . "push <collapse-all>"
 set from                    = camaj@spaceknow.com
 set folder                  = imaps://imap.gmail.com/
 set imap_user               = camaj@spaceknow.com
-set imap_pass               = `pass neomutt/camajatspaceknow`
+set imap_pass               = `pass spaceknow/neomutt`
 set smtp_url                = smtps://$imap_user:$imap_pass@smtp.gmail.com
 set smtp_authenticators     = plain
 set spoolfile               = +INBOX
