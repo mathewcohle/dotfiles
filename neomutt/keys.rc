@@ -1,0 +1,36 @@
+#------------------------------------------------------------
+# Vi Key Bindings
+#------------------------------------------------------------
+
+# Moving around
+bind attach,browser,index       g   noop
+bind attach,browser,index       gg  first-entry
+bind attach,browser,index       G   last-entry
+bind pager,index                J   sidebar-next
+bind pager,index                K   sidebar-prev
+bind index,pager                O   sidebar-open
+bind pager,index                d   noop
+bind pager,index                dd  delete-message
+bind index                      k   previous-entry
+bind index                      j   next-entry
+bind pager                      g   noop
+bind pager                      gg  top
+bind pager                      G   bottom
+bind pager                      k   previous-line
+bind pager                      j   next-line
+bind index,pager                N   noop
+bind index,pager                N   search-opposite
+
+# Threads
+bind generic                    t   noop
+bind pager,index                tn  next-thread
+bind pager,index                tN  previous-thread
+bind index                      tc  collapse-thread
+bind index                      tC  collapse-all
+bind pager,index                td  delete-thread
+
+# Custom
+bind pager,index                S   sync-mailbox
+
+# Macros
+macro index,pager               \cb "M <pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"

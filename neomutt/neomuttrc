@@ -4,6 +4,7 @@ set send_charset="utf-8"
 
 source ~/.neomutt/gruvbox-theme
 source ~/.neomutt/gruvbox-theme-extended
+source ~/.neomutt/keys.rc
 
 set realname="Matej Čamaj"
 
@@ -14,7 +15,11 @@ set imap_idle=yes
 set mail_check=60
 
 set sort=threads
-set sort_aux="reverse-last-date-received"
+set sort_aux=reverse-date-received
+set sort_browser=alpha
+set sort_alias=alias
+set pgp_sort_keys=trust
+
 set date_format="%d %b %H:%M"
 set index_format="%Z %D %-15.15L (%?l?%4l&%4c?) %s"
 set pager_context=3
@@ -41,13 +46,6 @@ set ssl_verify_host=yes
 set sidebar_visible
 set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
 set mail_check_stats
-bind index,pager \Ck sidebar-prev
-bind index,pager \Cj sidebar-next
-bind index,pager \Co sidebar-open
-bind index,pager \Cn next-unread
-
-# Folder hooks
-folder-hook . "push <collapse-all>"
 
 # Account configuration
 set from                    = camaj@spaceknow.com
