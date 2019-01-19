@@ -47,4 +47,4 @@ set sidebar_visible
 set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
 set mail_check_stats
 
-source ~/.neomutt/account
+source ~/.neomutt/account/base
