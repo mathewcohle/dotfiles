@@ -79,6 +79,7 @@ augroup END
 autocmd BufWritePre * %s/\s\+$//e
 " Commenting blocks of code.
 autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
+autocmd FileType javascript       let b:comment_leader = '// '
 autocmd FileType sh,ruby,python   let b:comment_leader = '# '
 autocmd FileType conf,fstab       let b:comment_leader = '# '
 autocmd FileType tex              let b:comment_leader = '% '
@@ -89,6 +90,7 @@ autocmd FileType sql              let b:comment_leader = '--'
 autocmd FileType yaml             let b:comment_leader = '# '
 autocmd FileType dockerfile       let b:comment_leader = '# '
 autocmd FileType neomuttrc        let b:comment_leader = '# '
+autocmd FileType lua              let b:comment_leader = '-- '
 " Shortcut to open buffer in vsplit from quickfix window
 autocmd! FileType qf nnoremap <buffer> <C-v> <C-w><Enter><C-w>L
 " Automatically update copyright notice with current year
@@ -145,6 +147,7 @@ nnoremap <Leader>fb :BCommits<CR>
 nnoremap <Leader>fs :Gstatus<CR>
 nnoremap <Leader>nf :NERDTreeFind<CR>
 nnoremap <Leader>nx :ALEFix<CR>
+nnoremap <Leader>ns :Isort<CR>
 nnoremap <Leader>e <Esc>:w<CR>:!clear;python %<CR>
 nnoremap <Leader>t <Esc>:w<CR>:!clear;nosetests --logging-level=INFO -vs %<CR>
 " Map keys to (un)comment
