@@ -93,11 +93,6 @@ autocmd FileType neomuttrc        let b:comment_leader = '# '
 autocmd FileType lua              let b:comment_leader = '-- '
 " Shortcut to open buffer in vsplit from quickfix window
 autocmd! FileType qf nnoremap <buffer> <C-v> <C-w><Enter><C-w>L
-" Automatically update copyright notice with current year
-autocmd BufWritePre *
-  \ if &modified |
-  \   exe "g#\\cCopyright (C) \\(".strftime("%Y")."\\)\\@![0-9]\\{4\\}\\(-".strftime("%Y")."\\)\\@!#s#\\([0-9]\\{4\\}\\)\\(-[0-9]\\{4\\}\\)\\?#\\1-".strftime("%Y") |
-  \ endif
 
 " Tab completion
 " will insert tab at beginning of line,
