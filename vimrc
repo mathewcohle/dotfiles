@@ -175,7 +175,8 @@ let g:ale_fixers = {'python': [
       \ 'autopep8',
       \ 'isort',
       \ 'remove_trailing_lines',
-      \ 'trim_whitespace' ]
+      \ 'trim_whitespace' ],
+      \ 'go': ['gofmt']
       \}
 
 " Lightline settings
