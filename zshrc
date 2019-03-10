@@ -3,7 +3,12 @@ ZSH=~/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 plugins=(
   git
+  history-substring-search
+  vi-mode
 )
+
+bindkey -M viins '^K' history-substring-search-up
+bindkey -M viins '^J' history-substring-search-down
 
 # User configuration
 # export MANPATH="/usr/local/man:$MANPATH"
