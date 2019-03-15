@@ -179,7 +179,7 @@ let g:ale_fixers = {'python': [
       \ 'isort',
       \ 'remove_trailing_lines',
       \ 'trim_whitespace' ],
-      \ 'go': ['gofmt']
+      \ 'go': ['gofmt'],
       \ 'scala': ['scalafmt']
       \}
 
