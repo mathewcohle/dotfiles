@@ -170,13 +170,17 @@ let g:ale_set_quickfix = 1
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_linters = {'python': ['autopep8', 'flake8']}
+let g:ale_linters = {
+    \'python': ['autopep8', 'flake8'],
+    \'scala': ['fsc', 'sbtserver', 'scalac', 'scalastyle']
+    \}
 let g:ale_fixers = {'python': [
       \ 'autopep8',
       \ 'isort',
       \ 'remove_trailing_lines',
       \ 'trim_whitespace' ],
       \ 'go': ['gofmt']
+      \ 'scala': ['scalafmt']
       \}
 
 " Lightline settings
