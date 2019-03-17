@@ -29,6 +29,10 @@ command=$SCRIPT_DIR/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
+[key_light]
+full_text=⌨
+command=$SCRIPT_DIR/key_light/key_light
+
 [volume-pulseaudio]
 command=$SCRIPT_DIR/volume-pulseaudio/volume-pulseaudio
 interval=once
