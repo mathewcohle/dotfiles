@@ -130,22 +130,15 @@ nnoremap <Leader><Space> :nohlsearch<CR>
 nnoremap <Leader>q :quit<CR>
 nnoremap <Leader>Q :quit!<CR>
 nnoremap <Leader>s :update<CR>
-nnoremap <Leader>n :bnext<CR>
-nnoremap <Leader>N :bprev<CR>
 nnoremap <Leader>d :YcmCompleter GetDoc<CR>
 nnoremap <Leader>g :YcmCompleter GoToDeclaration<CR>
 nnoremap <Leader>G :vsp <CR>:exec("YcmCompleter GoToDeclaration")<CR>
-nnoremap <Leader>r :YcmCompleter GoToReferences<CR>
-nnoremap <Leader>i :Git<space>
-nnoremap <Leader>fl :Gblame<CR>
 nnoremap <Leader>fc :Commits<CR>
 nnoremap <Leader>fb :BCommits<CR>
 nnoremap <Leader>fs :Gstatus<CR>
 nnoremap <Leader>nf :NERDTreeFind<CR>
 nnoremap <Leader>nx :ALEFix<CR>
 nnoremap <Leader>ns :Isort<CR>
-nnoremap <Leader>e <Esc>:w<CR>:!clear;python %<CR>
-nnoremap <Leader>t <Esc>:w<CR>:!clear;nosetests --logging-level=INFO -vs %<CR>
 " Map keys to (un)comment
 noremap <silent> <Leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> <Leader>cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>

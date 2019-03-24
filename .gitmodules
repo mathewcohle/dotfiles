@@ -37,3 +37,6 @@
 [submodule "vim/bundle/vim-isort"]
 	path = vim/bundle/vim-isort
 	url = git@github.com:fisadev/vim-isort.git
+[submodule "vim/bundle/vim-go"]
+	path = vim/bundle/vim-go
+	url = git@github.com:fatih/vim-go.git
