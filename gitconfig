@@ -19,6 +19,8 @@
   prune = true
 [rebase]
   autosquash = true
+[rerere]
+  enabled = true
 [push]
   default = simple
 [filter "lfs"]
