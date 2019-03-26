@@ -192,7 +192,7 @@ bindsym $mod+r mode "resize"
 bar {
     status_command SCRIPT_DIR=~/.config/i3blocks INTERFACE=wlp4s0 i3blocks
     position bottom
-	font pango:FontAwesome 16px, Hack,Regular 16px
+	font pango:FontAwesome 18px, Hack,Regular 18px
 	mode dock
     colors {
         statusline      #e2e4e9
