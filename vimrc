@@ -124,21 +124,17 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+" Language agnostic mappings
 nnoremap <C-p> :Files<CR>
 nnoremap <C-b> :Buffers<CR>
 nnoremap <Leader><Space> :nohlsearch<CR>
 nnoremap <Leader>q :quit<CR>
 nnoremap <Leader>Q :quit!<CR>
 nnoremap <Leader>s :update<CR>
-nnoremap <Leader>d :YcmCompleter GetDoc<CR>
-nnoremap <Leader>g :YcmCompleter GoToDeclaration<CR>
-nnoremap <Leader>G :vsp <CR>:exec("YcmCompleter GoToDeclaration")<CR>
 nnoremap <Leader>fc :Commits<CR>
 nnoremap <Leader>fb :BCommits<CR>
 nnoremap <Leader>fs :Gstatus<CR>
-nnoremap <Leader>nf :NERDTreeFind<CR>
-nnoremap <Leader>nx :ALEFix<CR>
-nnoremap <Leader>ns :Isort<CR>
+nnoremap <Leader>ff :NERDTreeFind<CR>
 " Map keys to (un)comment
 noremap <silent> <Leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> <Leader>cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
@@ -149,6 +145,13 @@ noremap <Leader>cf :let @+=expand("%")<CR>
 :cnoremap <C-l> <Left>
 :cnoremap <C-j> <Down>
 :cnoremap <C-k> <Up>
+" Python mappings
+autocmd FileType python nnoremap <Leader>d :YcmCompleter GetDoc<CR>
+autocmd FileType python nnoremap <Leader>g :YcmCompleter GoToDeclaration<CR>
+autocmd FileType python nnoremap <Leader>G :vsp <CR>:exec("YcmCompleter GoToDeclaration")<CR>
+autocmd FileType python nnoremap <Leader>nx :ALEFix<CR>
+autocmd FileType python nnoremap <Leader>nr <Esc>:w<CR>:!clear;python %<CR>
+autocmd FileType python nnoremap <Leader>nt <Esc>:w<CR>:!clear;pytest -vv --disable-pytest-warnings %<CR>
 
 " Include packages
 execute pathogen#infect()
