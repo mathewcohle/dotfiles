@@ -98,22 +98,21 @@ autocmd! FileType qf nnoremap <buffer> <C-v> <C-w><Enter><C-w>L
 " Tab completion
 " will insert tab at beginning of line,
 " will use completion if not at beginning
-set wildmode=list:longest,list:full
-function! InsertTabWrapper()
-  let col = col('.') - 1
-  if !col || getline('.')[col - 1] !~ '\k'
-    return "\<tab>"
-  else
-    return "\<c-p>"
-  endif
-endfunction
-inoremap <S-Tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <Tab> <c-n>
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
+" set wildmode=list:longest,list:full
+" function! InsertTabWrapper()
+"   let col = col('.') - 1
+"   if !col || getline('.')[col - 1] !~ '\k'
+"     return "\<tab>"
+"   else
+"     return "\<c-p>"
+"   endif
+" endfunction
+" inoremap <S-Tab> <c-r>=InsertTabWrapper()<cr>
+" inoremap <Tab> <c-n>
 
 nmap j gj
 nmap k gk
-" Custom map
-nnoremap <F3> :NERDTreeToggle<CR>
 " Split line
 nnoremap K i<CR><Esc>
 nnoremap \ :Ag<CR>
@@ -135,6 +134,7 @@ nnoremap <Leader>fc :Commits<CR>
 nnoremap <Leader>fb :BCommits<CR>
 nnoremap <Leader>fs :Gstatus<CR>
 nnoremap <Leader>ff :NERDTreeFind<CR>
+nnoremap <Leader>ft :NERDTreeToggle<CR>
 " Map keys to (un)comment
 noremap <silent> <Leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> <Leader>cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
@@ -150,8 +150,15 @@ autocmd FileType python nnoremap <Leader>d :YcmCompleter GetDoc<CR>
 autocmd FileType python nnoremap <Leader>g :YcmCompleter GoToDeclaration<CR>
 autocmd FileType python nnoremap <Leader>G :vsp <CR>:exec("YcmCompleter GoToDeclaration")<CR>
 autocmd FileType python nnoremap <Leader>nx :ALEFix<CR>
-autocmd FileType python nnoremap <Leader>nr <Esc>:w<CR>:!clear;python %<CR>
-autocmd FileType python nnoremap <Leader>nt <Esc>:w<CR>:!clear;pytest -vv --disable-pytest-warnings %<CR>
+autocmd FileType python nnoremap <Leader>nr <Esc>:w<CR>:!python %<CR>
+autocmd FileType python nnoremap <Leader>nt <Esc>:w<CR>:!pytest -vv --disable-pytest-warnings %<CR>
+" Golang mappings
+autocmd FileType go nnoremap <Leader>d :GoDoc<CR>
+autocmd FileType go nnoremap <Leader>g :GoDef<CR>
+autocmd FileType go nnoremap <Leader>G :vsp <CR>:exec("GoDef")<CR>
+autocmd FileType go nmap <Leader>nb <Plug>(go-build)
+autocmd FileType go nnoremap <Leader>nr <Esc>:w<CR>:!go run %<CR>
+autocmd FileType go nmap <Leader>nt <Plug>(go-test)
 
 " Include packages
 execute pathogen#infect()
@@ -176,7 +183,6 @@ let g:ale_fixers = {'python': [
       \ 'isort',
       \ 'remove_trailing_lines',
       \ 'trim_whitespace' ],
-      \ 'go': ['gofmt'],
       \ 'scala': ['scalafmt']
       \}
 
