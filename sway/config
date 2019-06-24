@@ -22,8 +22,8 @@ output eDP-1 resolution 1920x1080 position 0,0
 for_window [class="^.*"] border pixel 0
 client.focused #ff0000 #ff0040 #ffffff #e2e4e9 #e2e4e9
 
-new_window pixel 2
-new_float  normal
+default_border pixel 2
+default_floating_border normal
 set $default_gaps_inner 4
 set $default_gaps_outer 2
 gaps inner $default_gaps_inner
