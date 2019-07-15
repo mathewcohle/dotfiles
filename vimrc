@@ -223,6 +223,8 @@ let g:nerdtree_tabs_open_on_console_startup = 0
 let $FZF_DEFAULT_COMMAND = 'ag -Q -l --hidden -g ""'
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
+" [[B]Commits] Customize the options used by 'git log':
+let g:fzf_commits_log_options = '--graph --all --abbrev-commit --date=relative --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr %Cblue<%an>%Creset"'
 " Files command with preview window
 command! -bang -nargs=? -complete=dir Files
       \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
