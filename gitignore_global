@@ -5,3 +5,4 @@ Pipfile
 Pipfile.lock
 env/
 __pycache__/
+tags

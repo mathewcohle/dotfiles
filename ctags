@@ -1,0 +1,10 @@
+--recurse=yes
+--exclude=.git
+--exclude=.git/*
+--exclude=build/
+--exclude=dist/
+--exclude=*.egg-info
+--exclude=.tox/*
+--exclude=*.json
+--python-kinds=-i
+--tag-relative=yes

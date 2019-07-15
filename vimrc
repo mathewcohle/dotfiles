@@ -134,13 +134,15 @@ nnoremap <Leader>s :update<CR>
 nnoremap <Leader>fc :Commits<CR>
 nnoremap <Leader>fb :BCommits<CR>
 nnoremap <Leader>fs :Gstatus<CR>
-nnoremap <Leader>ff :NERDTreeFind<CR>
-nnoremap <Leader>ft :NERDTreeToggle<CR>
+nnoremap <Leader>ft :Tags<CR>
+nnoremap <leader>fg :call fzf#vim#tags('^' . expand('<cword>'), {'options': '--exact --select-1 --exit-0 +i'})<CR>
+nnoremap <Leader>nf :NERDTreeFind<CR>
+nnoremap <Leader>nt :NERDTreeToggle<CR>
+" Convenient way to copy path to current buffer
+noremap <Leader>nc :let @+=expand("%")<CR>
 " Map keys to (un)comment
 noremap <silent> <Leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> <Leader>cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
-" Convenient way to copy path to current buffer
-noremap <Leader>cf :let @+=expand("%")<CR>
 " Map keys for movement in command line
 :cnoremap <C-h> <Right>
 :cnoremap <C-l> <Left>
@@ -225,6 +227,8 @@ let $FZF_DEFAULT_COMMAND = 'ag -Q -l --hidden -g ""'
 let g:fzf_buffers_jump = 1
 " [[B]Commits] Customize the options used by 'git log':
 let g:fzf_commits_log_options = '--graph --all --abbrev-commit --date=relative --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr %Cblue<%an>%Creset"'
+" [Tags] Command to generate tags file
+let g:fzf_tags_command = 'ctags -R'
 " Files command with preview window
 command! -bang -nargs=? -complete=dir Files
       \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
