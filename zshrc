@@ -15,7 +15,7 @@ bindkey -M viins '^J' history-substring-search-down
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 export LC_ALL="en_US.UTF-8"
-export EDITOR="vim"
+export EDITOR="nvim"
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
