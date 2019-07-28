@@ -163,6 +163,14 @@ autocmd FileType go nmap <Leader>nb <Plug>(go-build)
 autocmd FileType go nnoremap <Leader>nr <Esc>:w<CR>:!go run %<CR>
 autocmd FileType go nmap <Leader>nt <Plug>(go-test)
 
+" Rust mappings
+autocmd FileType rust nnoremap <Leader>d :YcmCompleter GetDoc<CR>
+autocmd FileType rust nnoremap <Leader>g :YcmCompleter GoToDeclaration<CR>
+autocmd FileType rust nnoremap <Leader>G :vsp <CR>:exec("YcmCompleter GoToDeclaration")<CR>
+autocmd FileType rust nnoremap <Leader>nx :RustFmt<CR>
+autocmd FileType rust nnoremap <Leader>nr :Crun<CR>
+autocmd FileType rust nnoremap <Leader>nt :Ctest<CR>
+
 " Include packages
 execute pathogen#infect()
 execute pathogen#helptags()
@@ -250,6 +258,12 @@ let g:vim_isort_python_version = 'python3'
 " When the type of shell script is /bin/sh, assume a POSIX-compatible
 " shell for syntax highlighting purposes.
 let g:is_posix = 1
+
+" Rust settings
+let g:syntastic_rust_checkers = ['cargo']
+let g:racer_cmd = "/usr/local/bin/racer"
+let g:racer_experimental_completer = 1
+let g:racer_insert_paren = 1
 
 " Custom command definitions
 command! Json :%!python -m json.tool
