@@ -30,6 +30,10 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
     export SSH_AUTH_SOCK
 fi
 
+# custom functions
+fpath=($HOME/.zshfunc "${fpath[@]}" )
+autoload -Uz ikill
+
 source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
 source $HOME/.privaterc

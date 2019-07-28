@@ -1,0 +1,13 @@
+# mnemonic: [I]nteractive kill
+# show output of "ps -ef", use [tab] to select one or multiple entries
+# press [enter] to kill selected processes or press [escape] to quit.
+# Inspired by
+# https://github.com/SidOfc/dotfiles/blob/d07fa3862ed065c2a5a7f1160ae98416bfe2e1ee/zsh/kp
+
+local signal=${1:-9}
+local pid=$(ps -ef | sed 1d | eval "fzf -m --header='[kill:process:signal=$signal]'" | awk '{print $2}')
+
+if [ "x$pid" != "x" ]
+then
+  echo $pid | xargs kill -${signal}
+fi
