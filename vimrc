@@ -124,6 +124,12 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+" Map keys for movement in command line
+:cnoremap <C-h> <Right>
+:cnoremap <C-l> <Left>
+:cnoremap <C-j> <Down>
+:cnoremap <C-k> <Up>
+
 " Language agnostic mappings
 nnoremap <C-p> :Files<CR>
 nnoremap <C-b> :Buffers<CR>
@@ -140,14 +146,11 @@ nnoremap <Leader>tf :NERDTreeFind<CR>
 nnoremap <Leader>tt :NERDTreeToggle<CR>
 " Convenient way to copy path to current buffer
 noremap <Leader>tc :let @+=expand("%")<CR>
+
 " Map keys to (un)comment
 noremap <silent> <Leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> <Leader>cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
-" Map keys for movement in command line
-:cnoremap <C-h> <Right>
-:cnoremap <C-l> <Left>
-:cnoremap <C-j> <Down>
-:cnoremap <C-k> <Up>
+
 " Python mappings
 autocmd FileType python nnoremap <Leader>d :YcmCompleter GetDoc<CR>
 autocmd FileType python nnoremap <Leader>g :YcmCompleter GoToDeclaration<CR>
@@ -155,6 +158,7 @@ autocmd FileType python nnoremap <Leader>G :vsp <CR>:exec("YcmCompleter GoToDecl
 autocmd FileType python nnoremap <Leader>nx :ALEFix<CR>
 autocmd FileType python nnoremap <Leader>nr <Esc>:w<CR>:!python %<CR>
 autocmd FileType python nnoremap <Leader>nt <Esc>:w<CR>:!pytest -vv --disable-pytest-warnings %<CR>
+
 " Golang mappings
 autocmd FileType go nnoremap <Leader>d :GoDoc<CR>
 autocmd FileType go nnoremap <Leader>g :GoDef<CR>
