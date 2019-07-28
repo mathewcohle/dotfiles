@@ -1,0 +1,5 @@
+# mnemonic: [I]nteractive cd
+
+local depth=${1:-3}
+local path=$(find -maxdepth $depth -type d | fzf)
+cd $path

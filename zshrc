@@ -32,7 +32,7 @@ fi
 
 # custom functions
 fpath=($HOME/.zshfunc "${fpath[@]}" )
-autoload -Uz ikill
+autoload -Uz ikill icd
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
