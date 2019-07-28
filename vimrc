@@ -136,10 +136,10 @@ nnoremap <Leader>fb :BCommits<CR>
 nnoremap <Leader>fs :Gstatus<CR>
 nnoremap <Leader>ft :Tags<CR>
 nnoremap <leader>fg :call fzf#vim#tags('^' . expand('<cword>'), {'options': '--exact --select-1 --exit-0 +i'})<CR>
-nnoremap <Leader>nf :NERDTreeFind<CR>
-nnoremap <Leader>nt :NERDTreeToggle<CR>
+nnoremap <Leader>tf :NERDTreeFind<CR>
+nnoremap <Leader>tt :NERDTreeToggle<CR>
 " Convenient way to copy path to current buffer
-noremap <Leader>nc :let @+=expand("%")<CR>
+noremap <Leader>tc :let @+=expand("%")<CR>
 " Map keys to (un)comment
 noremap <silent> <Leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> <Leader>cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
