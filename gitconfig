@@ -32,8 +32,6 @@
   date = local
 [merge]
     conflictstyle = diff3
-[interactive]
-    singleKey = true
 [commit]
 	gpgsign = true
 [url "git@github.com:"]
