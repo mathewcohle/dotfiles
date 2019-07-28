@@ -248,9 +248,6 @@ command! -bang -nargs=* Ag
   \                 <bang>0 ? fzf#vim#with_preview('up:60%')
   \                         : fzf#vim#with_preview('right:30%'),
   \                 <bang>0)
-" table-mode settings
-let g:table_mode_corner_corner='+'
-let g:table_mode_header_fillchar='='
 
 " isort settings
 let g:vim_isort_python_version = 'python3'
