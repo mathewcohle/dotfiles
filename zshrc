@@ -9,6 +9,7 @@ plugins=(
 
 bindkey -M viins '^K' history-substring-search-up
 bindkey -M viins '^J' history-substring-search-down
+bindkey '^R' fzf-history-widget
 
 # User configuration
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -30,6 +31,14 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
     export SSH_AUTH_SOCK
 fi
 
+function hub-show () {
+    hub pr list | fzf | awk '{print $1}' | tr -d \# | xargs -n1 hub pr show
+}
+
+function hub-co () {
+    hub pr list | fzf | awk '{print $1}' | tr -d \# | xargs -n1 hub pr checkout
+}
+
 # custom functions
 fpath=($HOME/.zshfunc "${fpath[@]}" )
 autoload -Uz ikill icd
@@ -37,3 +46,4 @@ autoload -Uz ikill icd
 source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
 source $HOME/.privaterc
+source /usr/share/fzf/key-bindings.zsh
