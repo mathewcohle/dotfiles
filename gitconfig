@@ -1,7 +1,7 @@
 [user]
   name = Matej Čamaj
   email = camaj@protonmail.com
-	signingkey = 756B1D12F9331B999F43BE7CBA553DA1EAE53843
+  signingkey = 756B1D12F9331B999F43BE7CBA553DA1EAE53843
 [color]
   ui = auto
 [alias]
@@ -31,8 +31,8 @@
 [log]
   date = local
 [merge]
-    conflictstyle = diff3
+  conflictstyle = diff3
 [commit]
-	gpgsign = true
+  gpgsign = true
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+  insteadOf = https://github.com/
