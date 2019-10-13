@@ -78,8 +78,8 @@ interval=3600
 # Date Time
 [calendar]
 command=$SCRIPT_DIR/calendar/calendar
-# command=date '+%Y-%m-%d %H:%M:%S'
-interval=1
+DATEFMT=+%a %d.%m.%Y %H:%M
+interval=30
 
 # Generic media player support
 #
