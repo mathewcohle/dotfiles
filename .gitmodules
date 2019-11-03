@@ -4,9 +4,6 @@
 [submodule "vim/bundle/vim-autoformat"]
 	path = vim/bundle/vim-autoformat
 	url = https://github.com/Chiel92/vim-autoformat.git
-[submodule "vim/bundle/YouCompleteMe"]
-	path = vim/bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe.git
 [submodule "vim/bundle/fzf.vim"]
 	path = vim/bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
