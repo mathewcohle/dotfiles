@@ -77,8 +77,9 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
     bindsym $mod+Shift+c reload
 
     # exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit Sway?' -b 'Yes' 'swaymsg exit'
     bindsym Alt+l exec swaylock -i ~/wallpaper.jpg
+    bindsym $mod+Alt+l exec systemctl suspend
+    bindsym $mod+Alt+e exec swaynag -t warning -m 'Exit Sway?' -b 'Yes' 'swaymsg exit'
 
 # Moving around:
     # Move your focus around
