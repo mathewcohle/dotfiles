@@ -196,7 +196,7 @@ bindsym $mod+r mode "resize"
 
 # Status Bar:
 bar {
-    status_command SCRIPT_DIR=~/.config/i3blocks INTERFACE=wlp4s0 i3blocks
+    swaybar_command waybar
     position bottom
 	font pango:FontAwesome 18px, Hack,Regular 18px
 	mode dock
