@@ -7,9 +7,16 @@ plugins=(
   vi-mode
 )
 
+autoload -U compinit && compinit
+autoload -U backward-kill-word-match
+zle -N backward-kill-word-space backward-kill-word-match
+zstyle ':zle:backward-kill-word-space' word-style space
+
 bindkey -M viins '^K' history-substring-search-up
 bindkey -M viins '^J' history-substring-search-down
 bindkey '^R' fzf-history-widget
+bindkey '^B' backward-kill-word-space
+bindkey '^G' backward-kill-word
 
 __fzf_history__() (
   local line
