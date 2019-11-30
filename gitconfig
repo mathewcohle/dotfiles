@@ -1,3 +1,5 @@
+[init]
+	templatedir = ~/.git_template
 [user]
   name = Matej Čamaj
   email = camaj@protonmail.com

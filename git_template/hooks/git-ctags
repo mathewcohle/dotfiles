@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+PATH="/usr/local/bin:$PATH"
+tmpdir="`mktemp -d`"
+gitdir="`git rev-parse --show-toplevel`"
+trap 'rm -f "$tmpdir/$$.tags"' EXIT
+git ls-files | \
+  ctags --tag-relative=no -L - -f"$tmpdir/$$.tags"
+mv "$tmpdir/$$.tags" "$gitdir/tags"
