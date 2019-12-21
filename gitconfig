@@ -16,7 +16,6 @@
 [core]
   excludesfile = ~/.gitignore_global
   autocrlf = input
-  editor = vim
 [fetch]
   prune = true
 [rebase]
