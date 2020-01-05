@@ -37,9 +37,6 @@ set splitright
 set encoding=utf-8
 " Always use vertical diffs
 set diffopt+=vertical
-" Define color scheme
-let g:gruvbox_italic=1
-colorscheme gruvbox
 set termguicolors
 " Disable folding
 set nofoldenable
@@ -57,6 +54,9 @@ hi SpellCap cterm=underline
 hi clear SpellLocal
 hi SpellLocal cterm=underline
 set complete+=kspell
+" Define color scheme; this needs to be defined after spell highlighting
+let g:gruvbox_italic=1
+colorscheme gruvbox
 
 filetype plugin indent on
 

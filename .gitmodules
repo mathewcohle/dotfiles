@@ -49,3 +49,6 @@
 [submodule "vim/bundle/YouCompleteMe"]
 	path = vim/bundle/YouCompleteMe
 	url = git@github.com:ycm-core/YouCompleteMe.git
+[submodule "vim/bundle/vim-grammarous"]
+	path = vim/bundle/vim-grammarous
+	url = git@github.com:rhysd/vim-grammarous.git
