@@ -77,6 +77,8 @@ augroup filetypedetect
 augroup END
 " Auto strip trailing whitespace
 autocmd BufWritePre * %s/\s\+$//e
+" Set textwidth for all files, wrap visual selection with gq
+auto BufRead,BufNewFile setlocal textwidth=79
 " Commenting blocks of code.
 autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
 autocmd FileType javascript       let b:comment_leader = '// '
