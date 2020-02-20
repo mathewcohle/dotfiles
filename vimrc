@@ -96,6 +96,7 @@ autocmd FileType neomuttrc        let b:comment_leader = '# '
 autocmd FileType lua              let b:comment_leader = '-- '
 autocmd FileType tmux             let b:comment_leader = '# '
 autocmd FileType zsh              let b:comment_leader = '# '
+autocmd FileType haskell          let b:comment_leader = '-- '
 " Shortcut to open buffer in vsplit from quickfix window
 autocmd! FileType qf nnoremap <buffer> <C-v> <C-w><Enter><C-w>L
 
