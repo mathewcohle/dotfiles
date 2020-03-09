@@ -52,3 +52,6 @@
 [submodule "vim/bundle/vim-grammarous"]
 	path = vim/bundle/vim-grammarous
 	url = git@github.com:rhysd/vim-grammarous.git
+[submodule "vim/bundle/haskell-vim"]
+	path = vim/bundle/haskell-vim
+	url = https://github.com/neovimhaskell/haskell-vim.git
