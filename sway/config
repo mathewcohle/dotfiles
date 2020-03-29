@@ -224,4 +224,7 @@ bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN
 # Other key bindings
 bindsym Print exec grim -t png ~/Downloads/screenshot.png
 
+# Pretty config
+client.focused #4c7899 #285577 #ffffff
+
 include /etc/sway/config.d/*

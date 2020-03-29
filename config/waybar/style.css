@@ -42,7 +42,7 @@ window#waybar.termite {
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: #285577;
 }
 
 #mode {
@@ -67,6 +67,10 @@ window#waybar.termite {
     color: #ffffff;
 }
 
+#idle_inhibitor.deactivated {
+    background-color: #285577;
+}
+
 #clock {}
 
 #battery {
@@ -78,7 +82,7 @@ window#waybar.termite {
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
+    background-color: #285577;
     color: #ffffff;
     animation-name: blink;
     animation-duration: 0.5s;
@@ -100,24 +104,17 @@ label:focus {
 #network {}
 
 #network.disconnected {
-    background-color: #f53c3c;
+    background-color: #285577;
 }
 
 #pulseaudio {}
 
 #pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
+    background-color: #285577;
 }
 
 #tray {}
 
-#idle_inhibitor {}
-
-#idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
-}
 
 @keyframes blink {
     to {
