@@ -1,3 +1,20 @@
+" Include packages
+"  083cbee6094c9ec347d7c75af421be27d2ec7e70 vim/bundle/vim-grammarous (heads/master)
+call plug#begin("~/.vim/plugged")
+Plug 'airblade/vim-gitgutter'
+Plug 'dense-analysis/ale'
+Plug 'fisadev/vim-isort'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf', { 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'preservim/nerdtree'
+Plug 'racer-rust/vim-racer'
+Plug 'rhysd/vim-grammarous'
+Plug 'rust-lang/rust.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer --rust-completer --system-libclang --js-completer --ts-completer' }
+call plug#end()
+
 " Leader
 let mapleader = ","
 
@@ -179,10 +196,6 @@ autocmd FileType rust nnoremap <Leader>G :vsp <CR>:exec("YcmCompleter GoToDeclar
 autocmd FileType rust nnoremap <Leader>nx :RustFmt<CR>
 autocmd FileType rust nnoremap <Leader>nr :Crun<CR>
 autocmd FileType rust nnoremap <Leader>nt :Ctest<CR>
-
-" Include packages
-execute pathogen#infect()
-execute pathogen#helptags()
 
 " Ale settings
 let g:ale_lint_on_enter = 1

@@ -1,1 +1,3 @@
 vim/spell/en.utf-8.add.spl
+# no need to track vim-plug installed packages
+vim/plugged
