@@ -71,8 +71,6 @@ window#waybar.termite {
     background-color: #285577;
 }
 
-#clock {}
-
 #battery {
     color: #ffffff;
 }
@@ -91,29 +89,17 @@ window#waybar.termite {
     animation-direction: alternate;
 }
 
-label:focus {
-    background-color: #000000;
-}
-
-#cpu {}
-
-#memory {}
-
-#backlight {}
-
-#network {}
-
 #network.disconnected {
     background-color: #285577;
 }
-
-#pulseaudio {}
 
 #pulseaudio.muted {
     background-color: #285577;
 }
 
-#tray {}
+label:focus {
+    background-color: #000000;
+}
 
 
 @keyframes blink {
