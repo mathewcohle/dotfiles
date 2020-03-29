@@ -7,6 +7,7 @@ Plug 'fisadev/vim-isort'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'moorereason/vim-markdownfmt'
 Plug 'preservim/nerdtree'
 Plug 'racer-rust/vim-racer'
 Plug 'rhysd/vim-grammarous'
@@ -283,6 +284,10 @@ let g:syntastic_rust_checkers = ['cargo']
 let g:racer_cmd = "/usr/local/bin/racer"
 let g:racer_experimental_completer = 1
 let g:racer_insert_paren = 1
+
+" Markdown fmt config
+let g:markdownfmt_command = 'markdownfmt'
+let g:markdownfmt_autosave = 1
 
 " Custom command definitions
 command! Json :%!python -m json.tool
