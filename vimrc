@@ -8,6 +8,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'moorereason/vim-markdownfmt'
+Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
 Plug 'racer-rust/vim-racer'
 Plug 'rhysd/vim-grammarous'
@@ -97,24 +98,6 @@ augroup END
 autocmd BufWritePre * %s/\s\+$//e
 " Set textwidth for all files, wrap visual selection with gq
 auto BufRead,BufNewFile setlocal textwidth=79
-" Commenting blocks of code.
-autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
-autocmd FileType javascript       let b:comment_leader = '// '
-autocmd FileType go               let b:comment_leader = '// '
-autocmd FileType sh,ruby,python   let b:comment_leader = '# '
-autocmd FileType conf,fstab       let b:comment_leader = '# '
-autocmd FileType tex              let b:comment_leader = '% '
-autocmd FileType mail             let b:comment_leader = '> '
-autocmd FileType rust             let b:comment_leader = '// '
-autocmd FileType vim              let b:comment_leader = '" '
-autocmd FileType sql              let b:comment_leader = '--'
-autocmd FileType yaml             let b:comment_leader = '# '
-autocmd FileType dockerfile       let b:comment_leader = '# '
-autocmd FileType neomuttrc        let b:comment_leader = '# '
-autocmd FileType lua              let b:comment_leader = '-- '
-autocmd FileType tmux             let b:comment_leader = '# '
-autocmd FileType zsh              let b:comment_leader = '# '
-autocmd FileType haskell          let b:comment_leader = '-- '
 " Shortcut to open buffer in vsplit from quickfix window
 autocmd! FileType qf nnoremap <buffer> <C-v> <C-w><Enter><C-w>L
 
@@ -169,10 +152,6 @@ nnoremap <Leader>tf :NERDTreeFind<CR>
 nnoremap <Leader>tt :NERDTreeToggle<CR>
 " Convenient way to copy path to current buffer
 noremap <Leader>tc :let @+=expand("%")<CR>
-
-" Map keys to (un)comment
-noremap <silent> <Leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
-noremap <silent> <Leader>cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
 " Python mappings
 autocmd FileType python nnoremap <Leader>d :YcmCompleter GetDoc<CR>
