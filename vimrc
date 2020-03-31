@@ -265,7 +265,7 @@ let g:racer_experimental_completer = 1
 let g:racer_insert_paren = 1
 
 " Markdown fmt config
-let g:markdownfmt_command = 'markdownfmt'
+let g:markdownfmt_command = 'mdfmt'
 let g:markdownfmt_autosave = 1
 
 " Custom command definitions
