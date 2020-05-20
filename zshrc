@@ -1,6 +1,5 @@
 # Path to your oh-my-zsh installation.
 ZSH=~/.oh-my-zsh
-ZSH_THEME="robbyrussell"
 plugins=(
   git
   history-substring-search
@@ -71,3 +70,6 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
 source $HOME/.privaterc
 source /usr/share/fzf/key-bindings.zsh
+
+# starship prompt: https://starship.rs/
+eval "$(starship init zsh)"
