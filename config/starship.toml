@@ -7,3 +7,6 @@ disabled = true
 [[battery.display]]
 threshold = 30
 style = "bold red"
+
+[directory]
+truncate_to_repo=false
