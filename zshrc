@@ -4,6 +4,7 @@ plugins=(
   git
   history-substring-search
   vi-mode
+  poetry
 )
 
 autoload -U compinit && compinit
@@ -40,6 +41,8 @@ export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat 
 export LANG=en_US.UTF-8
 export LC_ALL="en_US.UTF-8"
 export EDITOR="nvim"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
 ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
@@ -73,3 +76,7 @@ source /usr/share/fzf/key-bindings.zsh
 
 # starship prompt: https://starship.rs/
 eval "$(starship init zsh)"
+# pyenv init
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
