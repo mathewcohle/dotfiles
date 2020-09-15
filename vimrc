@@ -15,6 +15,7 @@ Plug 'rhysd/vim-grammarous'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer --rust-completer --system-libclang --js-completer --ts-completer' }
+Plug 'cespare/vim-toml'
 Plug 'mathewcohle/nvim-templator', { 'do': 'bash install.sh'}
 call plug#end()
 
