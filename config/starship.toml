@@ -10,3 +10,6 @@ style = "bold red"
 
 [directory]
 truncate_to_repo=false
+
+[git_status]
+stashed = ""
