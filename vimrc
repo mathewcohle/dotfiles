@@ -46,7 +46,8 @@ set hlsearch      " highlight matches
 set ignorecase
 set smartcase
 set mouse=a       " enable mouse for all modes
-set clipboard=unnamedplus
+"set clipboard=unnamedplus
+set clipboard+=unnamedplus
 " Use one space, not two, after punctuation.
 set nojoinspaces
 " Make it obvious where 79 characters is
