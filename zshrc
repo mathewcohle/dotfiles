@@ -31,6 +31,10 @@ __fzf_history__() (
       sed 's/^ *\([0-9]*\)\** *//' <<< "$line"
     fi
 )
+# Appends every command to the history file once it is executed
+setopt inc_append_history
+# Reloads the history whenever you use it
+setopt share_history
 
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
@@ -79,6 +83,7 @@ eval "$(starship init zsh)"
 # pyenv init
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
