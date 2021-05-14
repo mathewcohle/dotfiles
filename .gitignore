@@ -1,3 +1,9 @@
 vim/spell/en.utf-8.add.spl
 # no need to track vim-plug installed packages
 vim/plugged
+gnupg/private-keys-v1.d/
+gnupg/pubring.kbx
+gnupg/reader_0.status
+gnupg/reader_1.status
+gnupg/sshcontrol
+gnupg/trustdb.gpg
