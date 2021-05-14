@@ -3,6 +3,8 @@
 .DS_Store
 .python-version
 .ipynb_checkpoints/
+.idea/
+.env
 Pipfile
 Pipfile.lock
 env/
