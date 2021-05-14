@@ -54,12 +54,9 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
 fi
 
 # gpg agent configuration
-GPG_TTY=$(tty)
-export GPG_TTY
-if [ -z "$SSH_AUTH_SOCK" ]; then
-    SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-    export SSH_AUTH_SOCK
-fi
+export GPG_TTY="$(tty)"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
 
 function hub-show () {
     hub pr list | fzf | awk '{print $1}' | tr -d \# | xargs -n1 hub pr show
@@ -76,7 +73,7 @@ autoload -Uz ikill icd
 source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
 source $HOME/.privaterc
-source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/shell/key-bindings.zsh
 
 # starship prompt: https://starship.rs/
 eval "$(starship init zsh)"
