@@ -148,7 +148,7 @@ nnoremap <Leader>Q :quit!<CR>
 nnoremap <Leader>s :update<CR>
 nnoremap <Leader>fc :Commits<CR>
 nnoremap <Leader>fb :BCommits<CR>
-nnoremap <Leader>fs :Gstatus<CR>
+nnoremap <Leader>fs :Git<CR>
 nnoremap <Leader>fl :Git log --graph --format="%h%d %s <%an>" --abbrev-commit --date=relative<CR>
 nnoremap <Leader>ft :Tags<CR>
 nnoremap <leader>fg :call fzf#vim#tags('^' . expand('<cword>'), {'options': '--exact --select-1 --exit-0 +i'})<CR>
