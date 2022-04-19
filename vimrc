@@ -5,7 +5,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'dense-analysis/ale'
 Plug 'fisadev/vim-isort'
 Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf', { 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'moorereason/vim-markdownfmt'
 Plug 'preservim/nerdcommenter'
@@ -52,8 +52,8 @@ set clipboard+=unnamedplus
 " Use one space, not two, after punctuation.
 set nojoinspaces
 " Make it obvious where 79 characters is
-set textwidth=79
-set colorcolumn=+1
+"set textwidth=79
+set colorcolumn=80
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
@@ -79,7 +79,7 @@ hi SpellLocal cterm=underline
 set complete+=kspell
 " Define color scheme; this needs to be defined after spell highlighting
 let g:gruvbox_italic=1
-colorscheme gruvbox
+colorscheme monochrome
 
 filetype plugin indent on
 
