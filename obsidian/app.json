@@ -1,0 +1,11 @@
+{
+  "smartIndentList": true,
+  "promptDelete": false,
+  "alwaysUpdateLinks": true,
+  "attachmentFolderPath": "./attachments",
+  "vimMode": false,
+  "spellcheck": true,
+  "trashOption": "local",
+  "newFileLocation": "current",
+  "showUnsupportedFiles": true
+}
