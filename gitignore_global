@@ -5,6 +5,14 @@
 .ipynb_checkpoints/
 .idea/
 .env
+.venv
+.bloop
+.metals
+.vscode
+.dbeaver
+.project
+.envrc
+metals.sbt
 Pipfile
 Pipfile.lock
 env/
