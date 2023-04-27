@@ -3,9 +3,11 @@
 .DS_Store
 .python-version
 .ipynb_checkpoints/
-.idea/
+.idea
+.bsp
 .env
 .venv
+.direnv
 .bloop
 .metals
 .vscode
