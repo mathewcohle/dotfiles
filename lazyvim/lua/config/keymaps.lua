@@ -17,3 +17,8 @@ vim.api.nvim_del_keymap("s", "<C-s>")
 -- Define new mappings
 map("n", "<C-p>", "<cmd>Telescope find_files<cr>", { desc = "Files" })
 map("n", "<C-b>", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", { desc = "Buffers" })
+map("n", "<C-t>", "<cmd>Telescope tags<cr>", { desc = "Tags" })
+map("n", "<C-s>", "<cmd>Telescope git_status<cr>", { desc = "Git Status" })
+map("n", "<leader>ct", "<cmd>!ctags -R<cr>", { desc = "Generate Ctags" })
+map("n", "gt", "<cmd>lua require('telescope.builtin').grep_string({search = vim.fn.expand(\"<cword>\")})<cr>", {})
+map("n", "gT", "<cmd>!ctags -R<cr>", { desc = "Generate Ctags" })
