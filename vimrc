@@ -2,22 +2,13 @@
 "  083cbee6094c9ec347d7c75af421be27d2ec7e70 vim/bundle/vim-grammarous (heads/master)
 call plug#begin("~/.vim/plugged")
 Plug 'airblade/vim-gitgutter'
-Plug 'dense-analysis/ale'
-Plug 'fisadev/vim-isort'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'moorereason/vim-markdownfmt'
 Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
-Plug 'racer-rust/vim-racer'
 Plug 'rhysd/vim-grammarous'
-Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer --rust-completer --system-libclang --js-completer --ts-completer' }
-Plug 'cespare/vim-toml'
-Plug 'evanleck/vim-svelte', {'branch': 'main'}
-"Plug 'mathewcohle/nvim-templator', { 'do': 'bash install.sh'}
 call plug#end()
 
 " Leader
@@ -79,7 +70,7 @@ hi SpellLocal cterm=underline
 set complete+=kspell
 " Define color scheme; this needs to be defined after spell highlighting
 let g:gruvbox_italic=1
-colorscheme monochrome
+colorscheme gruvbox
 
 filetype plugin indent on
 
@@ -109,23 +100,12 @@ autocmd! FileType qf nnoremap <buffer> <C-v> <C-w><Enter><C-w>L
 " will insert tab at beginning of line,
 " will use completion if not at beginning
 inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
-" set wildmode=list:longest,list:full
-" function! InsertTabWrapper()
-"   let col = col('.') - 1
-"   if !col || getline('.')[col - 1] !~ '\k'
-"     return "\<tab>"
-"   else
-"     return "\<c-p>"
-"   endif
-" endfunction
-" inoremap <S-Tab> <c-r>=InsertTabWrapper()<cr>
-" inoremap <Tab> <c-n>
 
 nmap j gj
 nmap k gk
 " Split line
 nnoremap K i<CR><Esc>
-nnoremap \ :Ag<CR>
+nnoremap \ :Rg<CR>
 " Map backspace to delete letter in normal mode
 nnoremap <bs> X
 " Quicker window movement
@@ -145,7 +125,7 @@ nnoremap <C-b> :Buffers<CR>
 nnoremap <Leader><Space> :nohlsearch<CR>
 nnoremap <Leader>q :quit<CR>
 nnoremap <Leader>Q :quit!<CR>
-nnoremap <Leader>s :update<CR>
+nnoremap <Leader>w :update<CR>
 nnoremap <Leader>fc :Commits<CR>
 nnoremap <Leader>fb :BCommits<CR>
 nnoremap <Leader>fs :Git<CR>
@@ -156,53 +136,6 @@ nnoremap <Leader>tf :NERDTreeFind<CR>
 nnoremap <Leader>tt :NERDTreeToggle<CR>
 " Convenient way to copy path to current buffer
 noremap <Leader>tc :let @+=expand("%")<CR>
-
-" Python mappings
-autocmd FileType python nnoremap <Leader>d :YcmCompleter GetDoc<CR>
-autocmd FileType python nnoremap <Leader>g :YcmCompleter GoToDeclaration<CR>
-autocmd FileType python nnoremap <Leader>G :vsp <CR>:exec("YcmCompleter GoToDeclaration")<CR>
-autocmd FileType python nnoremap <Leader>nx :ALEFix<CR>
-autocmd FileType python nnoremap <Leader>nr <Esc>:w<CR>:!python %<CR>
-autocmd FileType python nnoremap <Leader>nt <Esc>:w<CR>:!pytest -vv --disable-pytest-warnings %<CR>
-
-" Golang mappings
-autocmd FileType go nnoremap <Leader>d :GoDoc<CR>
-autocmd FileType go nnoremap <Leader>g :GoDef<CR>
-autocmd FileType go nnoremap <Leader>G :vsp <CR>:exec("GoDef")<CR>
-autocmd FileType go nmap <Leader>nb <Plug>(go-build)
-autocmd FileType go nnoremap <Leader>nr <Esc>:w<CR>:!go run %<CR>
-autocmd FileType go nmap <Leader>nt <Plug>(go-test)
-
-" Rust mappings
-autocmd FileType rust nnoremap <Leader>d :YcmCompleter GetDoc<CR>
-autocmd FileType rust nnoremap <Leader>g :YcmCompleter GoToDeclaration<CR>
-autocmd FileType rust nnoremap <Leader>G :vsp <CR>:exec("YcmCompleter GoToDeclaration")<CR>
-autocmd FileType rust nnoremap <Leader>nx :RustFmt<CR>
-autocmd FileType rust nnoremap <Leader>nr :Crun<CR>
-autocmd FileType rust nnoremap <Leader>nt :Ctest<CR>
-
-" Ale settings
-let g:ale_lint_on_enter = 1
-let g:ale_lint_on_save = 1
-" let g:ale_lint_on_text_changed = 'never'
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '--'
-let g:ale_set_quickfix = 1
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_linters = {
-    \'python': ['autopep8', 'flake8'],
-    \'scala': ['fsc', 'sbtserver', 'scalac', 'scalastyle']
-    \}
-let g:ale_fixers = {'python': [
-      \ 'autopep8',
-      \ 'black',
-      \ 'isort',
-      \ 'remove_trailing_lines',
-      \ 'trim_whitespace' ],
-      \ 'scala': ['scalafmt']
-      \}
 
 " Lightline settings
 let g:lightline = {
@@ -224,55 +157,30 @@ let g:lightline = {
       \ },
       \ }
 
-" YcmCompleter settings
-let g:ycm_python_binary_path = 'python'
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_complete_in_comments = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_add_preview_to_completeopt = 0
-let g:ycm_goto_buffer_command = 'same-buffer' "[ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
-let g:ycm_rust_src_path = '~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src/'
-
 " NERDTree settings
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 let g:nerdtree_tabs_open_on_console_startup = 0
 
 " FZF settings
-let $FZF_DEFAULT_COMMAND = 'ag -Q -l --hidden -g ""'
+let $FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+command! -bang -nargs=? -complete=dir GFiles
+    \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview(), <bang>0)
+command! -bang -nargs=* Rg
+    \ call fzf#vim#grep(
+    \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+    \   fzf#vim#with_preview(), <bang>0)
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
 " [[B]Commits] Customize the options used by 'git log':
 let g:fzf_commits_log_options = '--graph --all --abbrev-commit --date=relative --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr %Cblue<%an>%Creset"'
 " [Tags] Command to generate tags file
 let g:fzf_tags_command = 'ctags -R'
-" Files command with preview window
-command! -bang -nargs=? -complete=dir Files
-      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-" Augmenting Ag command using fzf#vim#with_preview function
-"   :Ag  - Start fzf with hidden preview window that can be enabled with "?" key
-"   :Ag! - Start fzf in full screen and display the preview window above
-command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>,
-  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
-  \                         : fzf#vim#with_preview({'options': '-e'}, 'right:30%'),
-  \                 <bang>0)
-
-" isort settings
-let g:vim_isort_python_version = 'python3'
 
 " When the type of shell script is /bin/sh, assume a POSIX-compatible
 " shell for syntax highlighting purposes.
 let g:is_posix = 1
-
-" Rust settings
-let g:syntastic_rust_checkers = ['cargo']
-let g:racer_cmd = "/usr/local/bin/racer"
-let g:racer_experimental_completer = 1
-let g:racer_insert_paren = 1
-
-" Markdown fmt config
-let g:markdownfmt_command = 'mdfmt'
-let g:markdownfmt_autosave = 1
 
 " Custom command definitions
 command! Json :%!python -m json.tool
