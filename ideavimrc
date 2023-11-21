@@ -5,20 +5,35 @@
 
 " Source your .vimrc
 " source ~/.vimrc
-set mapleader = ","
+let mapleader = ","
 
-set clipboard+=unnamed
+" Plugins
+set NERDTree
 
-nnoremap <Leader>N :action Forward<CR>
-nnoremap <Leader>n :action Back<CR>
-nnoremap gd :action GotoDeclaration<CR>
+" File Navigation
+nmap <Leader>nt :NERDTreeToggle<CR>
+
+" LSP Actions
+nnoremap <Leader>gg :action GotoDeclaration<CR>
+nnoremap <Leader>gd :action QuickImplementations<CR>
+nnoremap <Leader>gu :action ShowUsages<CR>
+nnoremap <Leader>gf :action QuickJavaDoc<CR>
+
+" Executions & Tests
+nnoremap <Leader>tt :action RunClass<CR>
+nnoremap <Leader>tf :action ReformatCode<CR>
+
+" Buffer Management
+nnoremap <Leader>h :action HideActiveWindow<CR>
 nnoremap <Leader>w :action SaveAll<CR>
-" to be mapped: ActivateTerminalToolWindow
+nnoremap <Leader>q :action CloseEditor<CR>
 
 "" -- Suggested options --
 " Show a few lines of context around the cursor. Note that this makes the
 " text scroll if you mouse-click near the start or end of the window.
 set scrolloff=5
+set clipboard+=unnamed
+set visualbell
 
 " Do incremental searching.
 set incsearch
@@ -26,9 +41,8 @@ set incsearch
 " --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
 
 " Highlight copied text
-Plug 'machakann/vim-highlightedyank'
 " Commentary plugin
-Plug 'tpope/vim-commentary'
+" Plug 'tpope/vim-commentary'
 
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
