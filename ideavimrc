@@ -8,10 +8,9 @@
 let mapleader = ","
 
 " Plugins
-set NERDTree
 
 " File Navigation
-nmap <Leader>nt :NERDTreeToggle<CR>
+nnoremap <Leader>. :action ShowIntentionActions<CR>
 
 " LSP Actions
 nnoremap <Leader>gg :action GotoDeclaration<CR>
