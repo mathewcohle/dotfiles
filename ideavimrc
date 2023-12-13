@@ -21,6 +21,7 @@ nnoremap <Leader>gf :action QuickJavaDoc<CR>
 " Executions & Tests
 nnoremap <Leader>tt :action RunClass<CR>
 nnoremap <Leader>tf :action ReformatCode<CR>
+nnoremap <Leader>tn :action GotoTest<CR>
 
 " Buffer Management
 nnoremap <Leader>h :action HideActiveWindow<CR>
