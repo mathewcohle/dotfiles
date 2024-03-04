@@ -73,7 +73,7 @@ autoload -Uz ikill icd
 source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
 source $HOME/.privaterc
-source /usr/share/fzf/shell/key-bindings.zsh
+source /usr/share/fzf/key-bindings.zsh
 
 # starship prompt: https://starship.rs/
 eval "$(starship init zsh)"
