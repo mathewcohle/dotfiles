@@ -79,7 +79,6 @@ source /usr/share/fzf/shell/key-bindings.zsh
 eval "$(starship init zsh)"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-eval "$(direnv hook zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
