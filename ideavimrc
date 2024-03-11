@@ -22,6 +22,8 @@ nnoremap <Leader>gf :action QuickJavaDoc<CR>
 nnoremap <Leader>tt :action RunClass<CR>
 nnoremap <Leader>tf :action ReformatCode<CR>
 nnoremap <Leader>tn :action GotoTest<CR>
+let @x= "mb/# %%<CR>NVn:action ExecuteInPyConsoleAction<CR><Esc>`b"
+nnoremap <Leader>te @x
 
 " Buffer Management
 nnoremap <Leader>h :action HideActiveWindow<CR>
