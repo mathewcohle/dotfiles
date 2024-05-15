@@ -17,6 +17,10 @@ nnoremap <Leader>gg :action GotoDeclaration<CR>
 nnoremap <Leader>gd :action QuickImplementations<CR>
 nnoremap <Leader>gu :action ShowUsages<CR>
 nnoremap <Leader>gf :action QuickJavaDoc<CR>
+nnoremap <Leader>ga :action GotoAction<CR>
+nnoremap <Leader>gs :action FileStructurePopup<CR>
+nnoremap <Leader>N :action Forward<CR>
+nnoremap <Leader>n :action Back<CR>
 
 " Executions & Tests
 nnoremap <Leader>tt :action RunClass<CR>
