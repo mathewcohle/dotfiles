@@ -145,7 +145,7 @@ keybinding:
         pushFiles: P
         pullFiles: p
         refresh: R
-        createPatchOptionsMenu: u
+        createPatchOptionsMenu: <c-p>
         nextTab: ']'
         prevTab: '['
         nextScreenMode: +
@@ -214,7 +214,7 @@ keybinding:
         revertCommit: t
         cherryPickCopy: c
         cherryPickCopyRange: C
-        pasteCommits: v
+        pasteCommits: V
         markCommitAsBaseForRebase: B
         tagCommit: T
         checkoutCommit: <space>
